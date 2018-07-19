@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="index.html">Application Manager</a>
+				<nav>
+					<a href="#menu">관리자 님</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="appList.html">Application</a></li>
+					<li><a href="recommend.html">Recommendation</a></li>
+					<li><a href="accountList.html">Account</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+
+
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					
+					<h2>관리자 계정 등록/수정</h2>
+									<form method="post" action="#">
+										<input type="hidden" name="appId" desc="앱 번호" />
+										<div class="row gtr-uniform">
+											<div class="col-12 col-12-xsmall">
+												<h5>관리자명</h5>
+												<input type="text" name="adminName" id="name" value="" placeholder="관리자명" />
+											</div>
+											<div class="col-12 col-12-xsmall">
+												<h5>관리자 연락처</h5>
+												<input type="text" name="adminPhone" id="name" value="" placeholder="관리자 연락처" />
+											</div>
+											<div class="col-12 col-12-xsmall">
+												<h5>ID</h5>
+												<input type="text" name="adminID" id="name" value="" placeholder="ID" />
+											</div>
+											<div class="col-12 col-12-xsmall">
+												<h5>PASSWORD</h5>
+												<input type="password" name="adminPwd" id="name" value="" placeholder="Password" />
+											</div>
+											
+											<!-- Break -->
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="button" value="등록/수정" class="primary" /></li>
+													<li><input type="button" value="취소" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					Powered By &copy;PickleCode
+					<div class="copyright">
+						&copy; PickleCode.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
