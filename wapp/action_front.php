@@ -2,7 +2,6 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminBase.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/Admin.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php" ; ?>
-<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminReference.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminEtc.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/ApiList.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ; ?>

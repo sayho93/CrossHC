@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Created by PhpStorm.
@@ -16,13 +17,72 @@
 <script>
     $(document).ready(function(){
         $(".jManage").click(function(){
-            location.href = "/admin/pages/detailR.php";
+            var id = $(this).attr("id");
+            location.href = "/admin/pages/detailR.php?id=" + id;
         });
 
         //추첩앱 바로가기 기능
         $("#category").change(function(){
-
+            var id = $("#category").val();
+            location.href = "/admin/pages/detailR.php?id=" + id;
         });
+
+        $(".jOrderUp").click(function(){
+            var params = new sehoMap().put("type", 1).put("id", $(this).attr("id"));
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.changeRecommendOrder", false, "json", params);
+            ajax.send(function(data){
+                if(data.returnCode === 1) location.reload();
+                else if(data.returnCode === -1) alert("이미 최상단에 위치해 있습니다");
+            });
+        });
+
+        $(".jOrderDown").click(function(){
+            var params = new sehoMap().put("type", -1).put("id", $(this).attr("id"));
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.changeRecommendOrder", false, "json", params);
+            ajax.send(function(data){
+                if(data.returnCode === 1) location.reload();
+                else if(data.returnCode === -2) alert("이미 최하단에 위치해 있습니다");
+            });
+        });
+
+        $("#jCheckAll").change(function(){
+            if($(this).is(":checked"))
+                $(".jRecommend").prop("checked", true);
+            else
+                $(".jRecommend").prop("checked", false);
+        });
+
+        //TODO
+        $(".jDel").click(function(){
+            var noArr = new Array();
+            var noCount = $(".jRecommend:checked").length;
+            if(noCount == 0){
+                alert("삭제할 사용자를 하나 이상 선택해주세요.");
+                return false;
+            }
+            if(confirm("삭제하시겠습니까?")){
+                for(var i = 0; i < noCount; i++ ) noArr[i] = $(".jRecommend:checked:eq(" + i + ")").val();
+                deleteUser(noArr);
+            }
+        });
+
+        //TODO
+        function deleteUser(noArr){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteRecommend", false, "json", new sehoMap().put("no", noArr));
+            ajax.send(function(data){
+
+                if(data.returnCode == 1){
+                    if(noArr.includes("<?=$obj->admUser->adminNo?>")){
+                        alert("현재 로그인 되어있는 관리자 계정이 삭제되어 로그아웃 됩니다.");
+                        $(".jLogout").trigger("click");
+                        return;
+
+                    }
+                    alert("삭제되었습니다");
+                    location.reload();
+                }
+            });
+        }
     });
 </script>
 
@@ -59,45 +119,24 @@
             <ul class="alt">
                 <li>
                     <div class="col-6 col-12-small">
-                        <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                        <label for="checkbox-alpha">전체</label>
-                        <a href="#" class="button primary small">선택 항목 삭제</a>
+                        <input type="checkbox" id="jCheckAll">
+                        <label for="jCheckAll">전체</label>
+                        <a href="#" class="button primary small jDel">선택 항목 삭제</a>
                     </div>
                 </li>
 
                 <?foreach($list as $item){?>
                     <li>
                         <div class="col-6 col-12-small">
-                            <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                            <label for="checkbox-alpha"><?=$item["appName"]?></label>
+                            <input type="checkbox" class="jRecommend" id="checkbox-alpha<?=$item["id"]?>" value="<?=$item["id"]?>">
+                            <label for="checkbox-alpha<?=$item["id"]?>"><?=$item["appName"]?></label>
                         </div>
                         <a href="#" class="button primary small jManage" id="<?=$item["id"]?>">관리</a>&nbsp;
-                        <a href="#" class="button small" id="<?=$item["id"]?>">▲</a>&nbsp;
-                        <a href="#" class="button small" id="<?=$item["id"]?>">▼</a>&nbsp;
+                        <a href="#" class="button small jOrderUp" id="<?=$item["id"]?>">▲</a>&nbsp;
+                        <a href="#" class="button small jOrderDown" id="<?=$item["id"]?>">▼</a>&nbsp;
                         Updated At <b><?=$item["uptDate"]?></b>
                     </li>
                 <?}?>
-
-<!--                <li>-->
-<!--                    <div class="col-6 col-12-small">-->
-<!--                        <input type="checkbox" id="checkbox-alpha" name="checkbox">-->
-<!--                        <label for="checkbox-alpha">추천 앱 02</label>-->
-<!--                    </div>-->
-<!--                    <a href="#" class="button primary small">관리</a>&nbsp;-->
-<!--                    <a href="#" class="button small">▲</a>&nbsp;-->
-<!--                    <a href="#" class="button small">▼</a>&nbsp;-->
-<!--                    Updated At <b>2018-07-19 02:35:17</b>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <div class="col-6 col-12-small">-->
-<!--                        <input type="checkbox" id="checkbox-alpha" name="checkbox">-->
-<!--                        <label for="checkbox-alpha">추천 앱 03</label>-->
-<!--                    </div>-->
-<!--                    <a href="#" class="button primary small">관리</a>&nbsp;-->
-<!--                    <a href="#" class="button small">▲</a>&nbsp;-->
-<!--                    <a href="#" class="button small">▼</a>&nbsp;-->
-<!--                    Updated At <b>2018-07-19 02:35:17</b>-->
-<!--                </li>-->
             </ul>
         </div>
 

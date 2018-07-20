@@ -160,5 +160,63 @@ if(!class_exists("AdminMain")){
             return $this->getArray($sql);
         }
 
+        function changeRecommendOrder(){
+            $type = $_REQUEST["type"];
+            $id = $_REQUEST["id"];
+
+            $sql = "SELECT * FROM tblRecommend WHERE `id` = {$id}";
+            $currentRow = $this->getRow($sql);
+
+            if($type == 1){
+                $sql = "SELECT * FROM tblRecommend WHERE `order` > {$currentRow["order"]} LIMIT 1";
+                $upperRow = $this->getRow($sql);
+                if($upperRow == "") return $this->makeResultJson(-1, "fail");
+                else{
+                    $sql = "
+                        UPDATE tblRecommend
+                        SET `order` = {$currentRow["order"]}
+                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblRecommend WHERE `order` > {$currentRow["order"]} LIMIT 1) tmp)
+                    ";
+                    $this->update($sql);
+
+                    $sql = "
+                        UPDATE tblRecommend
+                        SET `order` = {$upperRow["order"]}
+                        WHERE `id` = {$id}
+                    ";
+                    $this->update($sql);
+                    return $this->makeResultJson(1, "succ");
+                }
+            }
+            else if($type == -1){
+                $sql = "SELECT * FROM tblRecommend WHERE `order` < {$currentRow["order"]} LIMIT 1";
+                $lowerRow = $this->getRow($sql);
+                if($lowerRow == "") return $this->makeResultJson(-2, "fail");
+                else{
+                    $sql = "
+                        UPDATE tblRecommend
+                        SET `order` = {$currentRow["order"]}
+                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblRecommend WHERE `order` < {$currentRow["order"]} LIMIT 1) tmp)
+                    ";
+                    $this->update($sql);
+
+                    $sql = "
+                        UPDATE tblRecommend
+                        SET `order` = {$lowerRow["order"]}
+                        WHERE `id` = {$id}
+                    ";
+                    $this->update($sql);
+                    return $this->makeResultJson(1, "succ");
+                }
+            }
+            else{
+                return $this->makeResultJson(-3, "fail");
+            }
+        }
+
+        function manageRecommend(){
+
+        }
+
     }
 }
