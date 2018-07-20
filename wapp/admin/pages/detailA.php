@@ -34,7 +34,7 @@
         });
 
         $(".jBack").click(function(){
-            history.back(-1);
+            history.back();
         });
 
         $(".jLogout").click(function(){

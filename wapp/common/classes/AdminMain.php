@@ -134,6 +134,22 @@ if(!class_exists("AdminMain")){
             return $this->makeResultJson(1, "succ");
         }
 
+        function manageApp(){
+            $appName = $_REQUEST["appName"];
+            $appDesc = $_REQUEST["appDesc"];
+
+            $sql = "
+                INSERT INTO tblApps(appName, appDesc, uptDate, regDate)
+                VALUES(
+                  '{$appName}',
+                  '{$appDesc}',
+                  NOW(),
+                  NOW()
+                )
+            ";
+            $this->update($sql);
+            return $this->makeResultJson(1, "succ");
+        }
 
     }
 }

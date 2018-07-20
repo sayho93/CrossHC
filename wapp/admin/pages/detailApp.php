@@ -16,18 +16,35 @@ $obj = new AdminMain($_REQUEST);
 ?>
 <script>
     $(document).ready(function(){
-        $(".jPage").click(function(){
-            $("[name=page]").val($(this).attr("page"));
-            form.submit();
+        $(".jLogout").click(function(){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
+            ajax.send(function(data){
+                if(data.returnCode === 1){
+                    location.href = "/admin";
+                }
+            });
         });
 
-        $(".jSearch").click(function(){
-            $("[name=searchTxt]").val($("#searchTxt").val());
-            $("[name=form]").submit();
+        $(".jAdd").click(function(){
+            var params = $("[name=form]").serialize();
+
+            $.ajax({
+                url: "/action_front.php?cmd=AdminMain.manageApp",
+                async: false,
+                cache: false,
+                dataType: "json",
+                data: params,
+                success: function(data){
+                    if(data.returnCode === 1){
+                        console.log(data.data);
+                        location.href = "/admin/pages/appList.php";
+                    }
+                }
+            });
         });
 
-        $(".jDel").click(function(){
-            var id = $(this).attr("no");
+        $(".jCancel").click(function(){
+            history.back();
         });
     });
 </script>
@@ -36,10 +53,10 @@ $obj = new AdminMain($_REQUEST);
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.html">Application</a></li>
-        <li><a href="recommend.html">Recommendation</a></li>
-        <li><a href="accountList.html">Account</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="appList.php">Application</a></li>
+        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="accountList.php">Account</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 
@@ -50,7 +67,7 @@ $obj = new AdminMain($_REQUEST);
 
         <h2>앱 등록/수정</h2>
         <h3>앱 제목이 노출됨</h3> <!-- 수정모드일 경우 -->
-        <form method="post" action="#">
+        <form name="form" method="post" action="#">
             <input type="hidden" name="appId" desc="앱 번호" />
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
@@ -64,8 +81,8 @@ $obj = new AdminMain($_REQUEST);
                 <!-- Break -->
                 <div class="col-12">
                     <ul class="actions">
-                        <li><input type="button" value="등록/수정" class="primary" /></li>
-                        <li><input type="button" value="취소" /></li>
+                        <li><input type="button" value="등록/수정" class="primary jAdd" /></li>
+                        <li><input type="button" value="취소" class="jCancel" /></li>
                     </ul>
                 </div>
             </div>
