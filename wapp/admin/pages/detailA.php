@@ -17,10 +17,9 @@
     $(document).ready(function(){
         $(".jAdd").click(function(){
             var params = $("[name=form]").serialize();
-            alert(params);
 
             $.ajax({
-                url: "/action_front.php?cmd=WebUser.manageAdminAccount",
+                url: "/action_front.php?cmd=AdminMain.manageAdminAccount",
                 async: false,
                 cache: false,
                 dataType: "json",
@@ -35,7 +34,16 @@
         });
 
         $(".jBack").click(function(){
+            history.back(-1);
+        });
 
+        $(".jLogout").click(function(){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
+            ajax.send(function(data){
+                if(data.returnCode === 1){
+                    location.href = "/admin";
+                }
+            });
         });
     });
 </script>
@@ -43,10 +51,10 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.html">Application</a></li>
-        <li><a href="recommend.html">Recommendation</a></li>
-        <li><a href="accountList.html">Account</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="appList.php">Application</a></li>
+        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="accountList.php">Account</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 

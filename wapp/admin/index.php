@@ -38,6 +38,9 @@
                 if(data.returnCode === 1){
                     location.href = "/admin/pages/appList.php";
                 }
+                else{
+                    alert("로그인 정보를 확인하세요");
+                }
             });
         });
 

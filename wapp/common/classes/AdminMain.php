@@ -21,8 +21,14 @@ if(!class_exists("AdminMain")){
                 LIMIT 1
             ";
             $res = $this->getRow($sql);
-            LoginUtil::doAdminLogin($res);
-            return $this->makeResultJson(1, "succ", $res);
+            if($res != ""){
+                LoginUtil::doAdminLogin($res);
+                return $this->makeResultJson(1, "succ", $res);
+            }
+            else{
+                return $this->makeResultJson(-1, "fail");
+            }
+
         }
 
         function logout(){
@@ -42,26 +48,29 @@ if(!class_exists("AdminMain")){
 
         function adminInfo(){
             $id = $_REQUEST["id"];
-            $sql = "SELECT * FROM tblAdmin WHERE adminNo = {$id} AND status = 1";
+            $sql = "SELECT * FROM tblAdmin WHERE adminNo = '{$id}' AND status = 1";
             return $this->getRow($sql);
         }
 
         function manageAdminAccount(){
+            $currentId = $this->admUser->adminNo;
+
             $id = $_REQUEST["id"];
             $name = $_REQUEST["adminName"];
             $phone = $_REQUEST["adminPhone"];
             $account = $_REQUEST["adminID"];
-            $pwd = $_REQUEST["adminPwd"];
+            $pwd = md5($_REQUEST["adminPwd"]);
 
             if($id == ""){
                 $sql = "
-                    INSERT INTO tblAdmin(adminName, adminPhone, adminID, adminPwd, regDate)
+                    INSERT INTO tblAdmin(adminName, adminPhone, adminID, adminPwd, regDate, status)
                     VALUES(
-                      {$name},
-                      {$phone},
-                      {$account},
-                      {md5($pwd)},
-                      NOW()
+                      '{$name}',
+                      '{$phone}',
+                      '{$account}',
+                      '{$pwd}',
+                      NOW(),
+                      1
                     )
                 ";
             }
@@ -69,17 +78,38 @@ if(!class_exists("AdminMain")){
                 $sql = "
                     UPDATE tblAdmin 
                     SET
-                      adminName = {$name},
-                      adminPhone = {$phone},
-                      adminID = {$account}
+                      adminName = '{$name}',
+                      adminPhone = '{$phone}',
+                      adminID = '{$account}'
                     WHERE adminNo = {$id}
                 ";
 
                 if($pwd != ""){
-                    $tmp = "UPDATE tblAdmin SET adminPwd = {md5($pwd)}";
+                    $tmp = "UPDATE tblAdmin SET adminPwd = '{$pwd}'";
                     $this->update($tmp);
                 }
             }
+            $this->update($sql);
+
+            if($currentId == $id){
+                //조작한 정보가 현재 로그인 되어있는 계정일 시 쿠키 수정
+                $sql = "SELECT * FROM tblAdmin WHERE adminNo = {$id}";
+                LoginUtil::doAdminLogin($this->getRow($sql));
+            }
+
+            return $this->makeResultJson(1, "succ");
+        }
+
+        function deleteAdmin(){
+            $noArr = $this->req["no"];
+
+            $noStr = implode(',', $noArr);
+
+            $sql = "
+				UPDATE tblAdmin
+				SET status = 0
+				WHERE `adminNo` IN({$noStr})
+			";
             $this->update($sql);
 
             return $this->makeResultJson(1, "succ");
