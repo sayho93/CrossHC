@@ -38,9 +38,22 @@
 
 <!-- Header -->
 <header id="header">
-    <a class="logo" href="index.html">Application Manager</a>
+    <a class="logo" href="/admin/pages/appList.php">Application Manager</a>
     <nav>
         <a href="#menu"><?=$userInfo->adminName?> 님</a>
     </nav>
 </header>
+
+<script>
+    $(document).ready(function(){
+        $(".jLogout").click(function(){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
+            ajax.send(function(data){
+                if(data.returnCode === 1){
+                    location.href = "/admin";
+                }
+            });
+        });
+    });
+</script>
 

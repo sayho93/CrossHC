@@ -7,24 +7,14 @@
  */
 ?>
 
-
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
-
+    $obj = new AdminMain($_REQUEST);
 ?>
+
 <script>
     $(document).ready(function(){
-        $(".jLogout").click(function(){
-            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
-            ajax.send(function(data){
-                if(data.returnCode === 1){
-                    location.href = "/admin";
-                }
-            });
-        });
-
         $(".jAdd").click(function(){
             var params = $("[name=form]").serialize();
 

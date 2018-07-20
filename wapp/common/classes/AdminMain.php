@@ -85,7 +85,7 @@ if(!class_exists("AdminMain")){
                 ";
 
                 if($pwd != ""){
-                    $tmp = "UPDATE tblAdmin SET adminPwd = '{$pwd}'";
+                    $tmp = "UPDATE tblAdmin SET adminPwd = '{$pwd}' WHERE adminNo = {$id}";
                     $this->update($tmp);
                 }
             }
@@ -149,6 +149,15 @@ if(!class_exists("AdminMain")){
             ";
             $this->update($sql);
             return $this->makeResultJson(1, "succ");
+        }
+
+        function recommendList(){
+            $sql = "
+                SELECT * FROM tblRecommend
+                ORDER by `order` DESC
+            ";
+
+            return $this->getArray($sql);
         }
 
     }

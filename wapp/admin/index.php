@@ -57,7 +57,7 @@
 
 <!-- Header -->
 <header id="header">
-    <a class="logo" href="index.html">Application Manager</a>
+    <a class="logo" href="/admin">Application Manager</a>
 </header>
 
 <!-- Highlights -->

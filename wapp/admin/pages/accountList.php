@@ -17,15 +17,6 @@
 ?>
 <script>
     $(document).ready(function(){
-        $(".jLogout").click(function(){
-            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
-            ajax.send(function(data){
-                if(data.returnCode === 1){
-                    location.href = "/admin";
-                }
-            });
-        });
-
         $(".jManage").click(function(){
             var id = $(this).attr("id");
             location.href = "/admin/pages/detailA.php?id=" + id;

@@ -19,23 +19,14 @@
             location.href = "/admin/pages/detailApp.php";
         });
 
-        $(".jLogout").click(function(){
-            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
-            ajax.send(function(data){
-                if(data.returnCode === 1){
-                    location.href = "/admin";
-                }
-            });
-        });
-
         $(".jManageS").click(function(){
             var appId = $(this).attr("appId");
-            location.href = "/admin/pages/detailS.php?appId=" + appId;
+            location.href = "/admin/pages/stageList.php?appId=" + appId;
         });
 
         $(".jManageR").click(function(){
             var appId = $(this).attr("appId");
-            location.href = "/admin/pages/detailR.php?appId=" + appId;
+            location.href = "/admin/pages/recommend.php?appId=" + appId;
         });
 
         $(".jDelete").click(function(){

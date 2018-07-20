@@ -36,15 +36,6 @@
         $(".jBack").click(function(){
             history.back();
         });
-
-        $(".jLogout").click(function(){
-            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
-            ajax.send(function(data){
-                if(data.returnCode === 1){
-                    location.href = "/admin";
-                }
-            });
-        });
     });
 </script>
 

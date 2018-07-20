@@ -7,11 +7,10 @@
  */
 ?>
 
-
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
+    $obj = new AdminMain($_REQUEST);
 
 ?>
 <script>
@@ -36,10 +35,10 @@ $obj = new AdminMain($_REQUEST);
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.html">Application</a></li>
-        <li><a href="recommend.html">Recommendation</a></li>
-        <li><a href="accountList.html">Account</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="appList.php">Application</a></li>
+        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="accountList.php">Account</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 
@@ -67,7 +66,7 @@ $obj = new AdminMain($_REQUEST);
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>썸네일 이미지</h5>
-                    <span class="image fit"><img src="images/onerror.png" alt="" /></span>
+                    <span class="image fit"><img src="/admin/images/onerror.png" alt="" /></span>
                     <input type="text" name="imgPath" id="imgPath" value="" placeholder="썸네일 이미지를 선택하세요" READONLY />
                     <br/>
                     <a href="#" class="button primary fit jFind small">이미지 찾기/등록</a>
