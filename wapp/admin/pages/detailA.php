@@ -10,23 +10,32 @@
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
-
+    $obj = new AdminMain($_REQUEST);
+    $item = $obj->adminInfo();
 ?>
 <script>
     $(document).ready(function(){
-        $(".jPage").click(function(){
-            $("[name=page]").val($(this).attr("page"));
-            form.submit();
+        $(".jAdd").click(function(){
+            var params = $("[name=form]").serialize();
+            alert(params);
+
+            $.ajax({
+                url: "/action_front.php?cmd=WebUser.manageAdminAccount",
+                async: false,
+                cache: false,
+                dataType: "json",
+                data: params,
+                success: function(data){
+                    if(data.returnCode === 1){
+                        console.log(data.data);
+                        location.href = "/admin/pages/accountList.php";
+                    }
+                }
+            });
         });
 
-        $(".jSearch").click(function(){
-            $("[name=searchTxt]").val($("#searchTxt").val());
-            $("[name=form]").submit();
-        });
+        $(".jBack").click(function(){
 
-        $(".jDel").click(function(){
-            var id = $(this).attr("no");
         });
     });
 </script>
@@ -47,31 +56,31 @@ $obj = new AdminMain($_REQUEST);
     <div class="inner">
 
         <h2>관리자 계정 등록/수정</h2>
-        <form method="post" action="#">
-            <input type="hidden" name="appId" desc="앱 번호" />
+        <form name="form" method="post" action="#">
+            <input type="hidden" name="id" value="<?=$item["adminNo"]?>"/>
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
                     <h5>관리자명</h5>
-                    <input type="text" name="adminName" id="name" value="" placeholder="관리자명" />
+                    <input type="text" name="adminName" id="name" value="<?=$item["adminName"]?>" placeholder="관리자명" />
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>관리자 연락처</h5>
-                    <input type="text" name="adminPhone" id="name" value="" placeholder="관리자 연락처" />
+                    <input type="text" name="adminPhone" id="phone" value="<?=$item["adminPhone"]?>" placeholder="관리자 연락처" />
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>ID</h5>
-                    <input type="text" name="adminID" id="name" value="" placeholder="ID" />
+                    <input type="text" name="adminID" id="id" value="<?=$item["adminID"]?>" placeholder="ID" />
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>PASSWORD</h5>
-                    <input type="password" name="adminPwd" id="name" value="" placeholder="Password" />
+                    <input type="password" name="adminPwd" id="pwd" value="" placeholder="비밀번호 변경 희망시 입력" />
                 </div>
 
                 <!-- Break -->
                 <div class="col-12">
                     <ul class="actions">
-                        <li><input type="button" value="등록/수정" class="primary" /></li>
-                        <li><input type="button" value="취소" /></li>
+                        <li><input type="button" value="등록/수정" class="primary jAdd" /></li>
+                        <li><input type="button" value="취소" class="jBack" /></li>
                     </ul>
                 </div>
             </div>

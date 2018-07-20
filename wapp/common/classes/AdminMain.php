@@ -30,423 +30,80 @@ if(!class_exists("AdminMain")){
             return $this->makeResultJson(1, "succ");
         }
 
-        function getUserList(){
-            $searchType = $_REQUEST["searchType"];
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            if($searchTxt != ""){
-                switch($searchType){
-                    case 0:
-                        $query = " AND `name` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = " AND `account` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 2:
-                        $query = " AND phone LIKE '%{$searchTxt}%'";
-                        break;
-                }
-            }
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $this->initPage();
+        function adminList(){
             $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblUser WHERE status = 1 {$query};
+                SELECT * FROM tblAdmin
+                WHERE status = 1
+                ORDER BY regDate DESC
             ";
 
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum) ;
-
-            $sql = "
-                SELECT * 
-                FROM tblUser WHERE status = 1 {$query}
-                ORDER BY ${sort} ${sortD}
-                LIMIT {$this->startNum}, {$this->endNum};
-            ";
             return $this->getArray($sql);
         }
 
-        function getManUserList(){
-            $searchType = $_REQUEST["searchType"];
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            if($searchTxt != ""){
-                switch($searchType){
-                    case 0:
-                        $query = " AND `name` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = " AND `account` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 2:
-                        $query = " AND phone LIKE '%{$searchTxt}%'";
-                        break;
-                }
-            }
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblUser WHERE status = 1 AND `type` = 'M' {$query};
-            ";
-
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum) ;
-
-            $sql = "
-                SELECT * 
-                FROM tblUser WHERE status = 1 AND `type` = 'M' {$query}
-                ORDER BY {$sort} {$sortD}
-                LIMIT {$this->startNum}, {$this->endNum};
-            ";
-            return $this->getArray($sql);
+        function adminInfo(){
+            $id = $_REQUEST["id"];
+            $sql = "SELECT * FROM tblAdmin WHERE adminNo = {$id} AND status = 1";
+            return $this->getRow($sql);
         }
 
-        function getGearUserList(){
-            $searchType = $_REQUEST["searchType"];
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            if($searchTxt != ""){
-                switch($searchType){
-                    case 0:
-                        $query = " AND `name` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = " AND `account` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 2:
-                        $query = " AND phone LIKE '%{$searchTxt}%'";
-                        break;
+        function manageAdminAccount(){
+            $id = $_REQUEST["id"];
+            $name = $_REQUEST["adminName"];
+            $phone = $_REQUEST["adminPhone"];
+            $account = $_REQUEST["adminID"];
+            $pwd = $_REQUEST["adminPwd"];
+
+            if($id == ""){
+                $sql = "
+                    INSERT INTO tblAdmin(adminName, adminPhone, adminID, adminPwd, regDate)
+                    VALUES(
+                      {$name},
+                      {$phone},
+                      {$account},
+                      {md5($pwd)},
+                      NOW()
+                    )
+                ";
+            }
+            else{
+                $sql = "
+                    UPDATE tblAdmin 
+                    SET
+                      adminName = {$name},
+                      adminPhone = {$phone},
+                      adminID = {$account}
+                    WHERE adminNo = {$id}
+                ";
+
+                if($pwd != ""){
+                    $tmp = "UPDATE tblAdmin SET adminPwd = {md5($pwd)}";
+                    $this->update($tmp);
                 }
             }
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblUser WHERE status = 1 AND `type` = 'G' {$query}
-                ORDER BY regDate DESC;
-            ";
-
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum) ;
-
-            $sql = "
-                SELECT * 
-                FROM tblUser WHERE status = 1 AND `type` = 'G' {$query}
-                ORDER BY {$sort} {$sortD}
-                LIMIT {$this->startNum}, {$this->endNum};
-            ";
-            return $this->getArray($sql);
-        }
-
-        function getNormalUserList(){
-            $searchType = $_REQUEST["searchType"];
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            if($searchTxt != ""){
-                switch($searchType){
-                    case 0:
-                        $query = " AND `name` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = " AND `account` LIKE '%{$searchTxt}%'";
-                        break;
-                    case 2:
-                        $query = " AND phone LIKE '%{$searchTxt}%'";
-                        break;
-                }
-            }
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblUser WHERE status = 1 AND `type` = 'N' {$query}
-                ORDER BY regDate DESC;
-            ";
-
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum) ;
-
-            $sql = "
-                SELECT * 
-                FROM tblUser WHERE status = 1 AND `type` = 'N' {$query}
-                ORDER BY {$sort} {$sortD}
-                LIMIT {$this->startNum}, {$this->endNum};
-            ";
-            return $this->getArray($sql);
-        }
-
-        function deleteUser(){
-            $id = $_REQUEST['id'];
-            $sql = "UPDATE tblUser SET `status` = 0 WHERE `id` = {$id}";
             $this->update($sql);
+
+            return $this->makeResultJson(1, "succ");
         }
 
-        function deleteUserMulti(){
-            $noArr = $this->req["no"];
-
-            $noStr = implode(',', $noArr);
+        function getAppList(){
             $sql = "
-				UPDATE tblUser
-				SET status = 0
-				WHERE `id` IN({$noStr})
-			";
-            $this->update($sql);
-        }
-
-        function getSearchList(){
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            $searchType = $_REQUEST["searchType"];
-            if($searchTxt != ""){
-                switch ($searchType){
-                    case 0:
-                        $query = "AND (SELECT account FROM tblUser U WHERE U.id = userId) LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = "AND (SELECT name FROM tblUser U WHERE U.id = userId) LIKE '%{$searchTxt}%'";
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblSearch
-                WHERE 1=1 {$query}
-            ";
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum);
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $sql = "
-                SELECT 
-                  *, 
-                  (SELECT account FROM tblUser U WHERE U.id = userId) as account,
-                  (SELECT `name` FROM tblUser U WHERE U.id = userId) as nm,
-                  (SELECT description FROM tblZipGugun G WHERE G.gugunID = S.gugunId) as gugunTxt
-                  ,(SELECT abbreviation FROM tblZipSido ZS WHERE ZS.sidoID = S.sidoId) as sidoTxt
-                FROM tblSearch S
-                WHERE 1=1 {$query}
-                ORDER BY {$sort} {$sortD}
-                LIMIT {$this->startNum}, {$this->endNum}
-            ";
-            return $this->getArray($sql);
-        }
-
-        function getManSearchList(){
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            $searchType = $_REQUEST["searchType"];
-            if($searchTxt != ""){
-                switch ($searchType){
-                    case 0:
-                        $query = "AND (SELECT account FROM tblUser U WHERE U.id = userId) LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = "AND (SELECT name FROM tblUser U WHERE U.id = userId) LIKE '%{$searchTxt}%'";
-                        break;
-                    default:
-                        break;
-                }
-            }
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblSearch
-                WHERE 1=1 AND `type` = 'M' {$query}
-            ";
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum);
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $sql = "
-                SELECT 
-                  *, 
-                  (SELECT account FROM tblUser U WHERE U.id = userId) as account,
-                  (SELECT `name` FROM tblUser U WHERE U.id = userId) as nm,
-                  (SELECT description FROM tblZipGugun G WHERE G.gugunID = S.gugunId) as gugunTxt
-                  ,(SELECT abbreviation FROM tblZipSido ZS WHERE ZS.sidoID = S.sidoId) as sidoTxt
-                FROM tblSearch S
-                WHERE 1=1 AND `type` = 'M' {$query}
-                ORDER BY {$sort} {$sortD}
-                LIMIT {$this->startNum}, {$this->endNum}
-            ";
-            return $this->getArray($sql);
-        }
-
-        function getGearSearchList(){
-            $searchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            $searchType = $_REQUEST["searchType"];
-            if($searchTxt != ""){
-                switch ($searchType){
-                    case 0:
-                        $query = "AND (SELECT account FROM tblUser U WHERE U.id = userId) LIKE '%{$searchTxt}%'";
-                        break;
-                    case 1:
-                        $query = "AND (SELECT name FROM tblUser U WHERE U.id = userId) LIKE '%{$searchTxt}%'";
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblSearch
-                WHERE 1=1 AND `type` = 'G' {$query}
-            ";
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum);
-
-            $sort = $_REQUEST["toSort"] == "" ? "regDate" : $_REQUEST["toSort"];
-            $sortD = $_REQUEST["sortDirection"] == "" ? "DESC" : $_REQUEST["sortDirection"];
-
-            $sql = "
-                SELECT 
-                  *, 
-                  (SELECT account FROM tblUser U WHERE U.id = userId) as account,
-                  (SELECT `name` FROM tblUser U WHERE U.id = userId) as nm,
-                  (SELECT description FROM tblZipGugun G WHERE G.gugunID = S.gugunId) as gugunTxt
-                  ,(SELECT abbreviation FROM tblZipSido ZS WHERE ZS.sidoID = S.sidoId) as sidoTxt
-                FROM tblSearch S
-                WHERE 1=1 AND `type` = 'G' {$query}
-                ORDER BY {$sort} {$sortD}
-                LIMIT {$this->startNum}, {$this->endNum}
-            ";
-            return $this->getArray($sql);
-        }
-
-        function getPaymentList(){
-            $searchType = $_REQUEST["searchType"];
-            $serchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            if($serchTxt != ""){
-                switch(intval($searchType)){
-                    case 0:
-                        $query = " AND U.account LIKE '%{$serchTxt}%'";
-                        break;
-                    case 1:
-                        $query = " AND U.name LIKE '%{$serchTxt}%'";
-                        break;
-                    case 2:
-                        $query = " AND U.phone LIKE '%{$serchTxt}%'";
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            $this->initPage();
-            $sql = "
-                SELECT COUNT(*) as rowCnt
-                FROM tblPayment P
-                JOIN tblUser U ON P.userId = U.id 
-                WHERE resCode = '00' {$query}
-            ";
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum);
-
-            $sql = "
-                SELECT *
-                FROM tblPayment P
-                JOIN tblUser U ON P.userId = U.id 
-                WHERE resCode = '00' {$query}
-                ORDER BY P.regDate DESC
-                LIMIT {$this->startNum}, {$this->endNum}
+                SELECT * FROM tblApps
+                ORDER BY regDate DESC
             ";
 
             return $this->getArray($sql);
         }
 
-        function getUserListForPoint(){
-
-            $searchType = $_REQUEST["searchType"];
-            $serchTxt = $_REQUEST["searchTxt"];
-            $query = "";
-            if($serchTxt != ""){
-                switch(intval($searchType)){
-                    case 0:
-                        $query = " AND account LIKE '%{$serchTxt}%'";
-                        break;
-                    case 1:
-                        $query = " AND name LIKE '%{$serchTxt}%'";
-                        break;
-                    case 2:
-                        $query = " AND phone LIKE '%{$serchTxt}%'";
-                        break;
-                    default:
-                        break;
-                }
-
-                $sql = "SELECT * FROM tblUser WHERE `status` = 1 {$query} ORDER BY regDate DESC";
-                return $this->getArray($sql);
-            }
-        }
-
-        function addPoint(){
-            $noArr = $_REQUEST["no"];
-            $amount = $_REQUEST["amount"];
-            $sql = "INSERT INTO tblPoint(`userId`, `inc`, `comment`, `regDate`) VALUES ";
-            for($e = 0; $e < sizeof($noArr); $e++){
-                $sql .= "({$noArr[$e]}, {$amount}, '관리자 수기 지급', NOW())";
-                if($e + 1 < sizeof($noArr)) $sql .= ", ";
-            }
-
-            $this->update($sql);
-        }
-
-        function changePass(){
-            $password = md5($_REQUEST["password"]);
-
+        function deleteApp(){
+            $appId = $_REQUEST["appId"];
             $sql = "
-            UPDATE tblAdmin SET `password`='{$password}'
+                DELETE FROM tblApps WHERE id = {$appId}
             ";
             $this->update($sql);
 
-            return $this->makeResultJson("1", "succ");
+            return $this->makeResultJson(1, "succ");
         }
 
-        function getSupplyList(){
-            $this->initPage();
-
-            $sql = "
-                SELECT COUNT(*) as rowCnt FROM tblPoint P JOIN tblUser U ON U.id = P.userId
-                WHERE payType = 0
-            ";
-            $this->rownum = $this->getValue($sql, "rowCnt");
-            $this->setPage($this->rownum);
-
-            $sql = "
-                SELECT *, P.regDate as rd 
-                FROM tblPoint P JOIN tblUser U ON U.id = P.userId
-                WHERE payType = 0 
-                ORDER BY P.regDate DESC
-                LIMIT {$this->startNum}, {$this->endNum}
-            ";
-
-            return $this->getArray($sql);
-        }
 
     }
 }

@@ -9,23 +9,44 @@
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
-
+    $obj = new AdminMain($_REQUEST);
+    $appList = $obj->getAppList();
 ?>
+
 <script>
     $(document).ready(function(){
-        $(".jPage").click(function(){
-            $("[name=page]").val($(this).attr("page"));
-            form.submit();
+        $(".jAdd").click(function(){
+            location.href = "/admin/pages/detailApp.php";
         });
 
-        $(".jSearch").click(function(){
-            $("[name=searchTxt]").val($("#searchTxt").val());
-            $("[name=form]").submit();
+        $(".jLogout").click(function(){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.logout", false, "json", new sehoMap());
+            ajax.send(function(data){
+                if(data.returnCode === 1){
+                    location.href = "/admin";
+                }
+            });
         });
 
-        $(".jDel").click(function(){
-            var id = $(this).attr("no");
+        $(".jManageS").click(function(){
+            var appId = $(this).attr("appId");
+            location.href = "/admin/pages/detailS.php?appId=" + appId;
+        });
+
+        $(".jManageR").click(function(){
+            var appId = $(this).attr("appId");
+            location.href = "/admin/pages/detailR.php?appId=" + appId;
+        });
+
+        $(".jDelete").click(function(){
+            var appId = $(this).attr("appId");
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteApp", false, "json", new sehoMap().put("appId", appId));
+            ajax.send(function(data){
+                if(data.returnCode == 1){
+                    alert("삭제되었습니다");
+                    location.reload();
+                }
+            });
         });
     });
 </script>
@@ -35,7 +56,7 @@ $obj = new AdminMain($_REQUEST);
     <ul class="links">
         <li><a href="appList.php">Application</a></li>
         <li><a href="accountList.php">Account</a></li>
-        <li><a href="../index.php">Logout</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 
@@ -47,52 +68,27 @@ $obj = new AdminMain($_REQUEST);
             <h2>Application List</h2>
             <p>관리할 앱을 선택하세요.</p>
         </header>
+
         <div class="highlights">
-            <section>
-                <div class="content">
-                    <header>
-                        <h3>앱 타이틀</h3>
-                    </header>
-                    <p>앱 부가설명이 삽입됩니다.</p>
-                    <div class="" appId="0">
-                        <a href="#" class="button primary fit jManageS small">스테이지 관리</a>
-                        <br/><br/>
-                        <a href="#" class="button primary fit jManageR small">추천앱 관리</a>
-                        <br/><br/>
-                        <a href="#" class="button fit jDelete small">삭제</a>
+
+            <?foreach($appList as $item){?>
+                <section>
+                    <div class="content">
+                        <header>
+                            <h3><?=$item["appName"]?></h3>
+                        </header>
+                        <p><?=$item["appDesc"]?></p>
+                        <div class="" appId="<?=$item["id"]?>">
+                            <a href="#" class="button primary fit jManageS small" appId="<?=$item["id"]?>">스테이지 관리</a>
+                            <br/><br/>
+                            <a href="#" class="button primary fit jManageR small" appId="<?=$item["id"]?>">추천앱 관리</a>
+                            <br/><br/>
+                            <a href="#" class="button fit jDelete small" appId="<?=$item["id"]?>">삭제</a>
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section>
-                <div class="content">
-                    <header>
-                        <h3>앱 타이틀</h3>
-                    </header>
-                    <p>앱 부가설명이 삽입됩니다.</p>
-                    <div class="" appId="0">
-                        <a href="#" class="button primary fit jManageS small">스테이지 관리</a>
-                        <br/><br/>
-                        <a href="#" class="button primary fit jManageR small">추천앱 관리</a>
-                        <br/><br/>
-                        <a href="#" class="button fit jDelete small">삭제</a>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="content">
-                    <header>
-                        <h3>앱 타이틀</h3>
-                    </header>
-                    <p>앱 부가설명이 삽입됩니다.</p>
-                    <div class="" appId="0">
-                        <a href="#" class="button primary fit jManageS small">스테이지 관리</a>
-                        <br/><br/>
-                        <a href="#" class="button primary fit jManageR small">추천앱 관리</a>
-                        <br/><br/>
-                        <a href="#" class="button fit jDelete small">삭제</a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            <?}?>
+
             <section>
                 <div class="content jAdd">
                     <header>
