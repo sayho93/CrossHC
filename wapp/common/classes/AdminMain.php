@@ -157,7 +157,7 @@ if(!class_exists("AdminMain")){
             $sql = "
                 SELECT * FROM tblRecommend
                 WHERE appId = {$appId}
-                ORDER by `order` DESC
+                ORDER by `order` ASC
             ";
 
             return $this->getArray($sql);
@@ -182,7 +182,7 @@ if(!class_exists("AdminMain")){
             $sql = "SELECT * FROM tblRecommend WHERE `id` = {$id}";
             $currentRow = $this->getRow($sql);
 
-            if($type == 1){
+            if($type == -1){
                 $sql = "SELECT * FROM tblRecommend WHERE `order` > {$currentRow["order"]} LIMIT 1";
                 $upperRow = $this->getRow($sql);
                 if($upperRow == "") return $this->makeResultJson(-1, "fail");
@@ -203,7 +203,7 @@ if(!class_exists("AdminMain")){
                     return $this->makeResultJson(1, "succ");
                 }
             }
-            else if($type == -1){
+            else if($type == 1){
                 $sql = "SELECT * FROM tblRecommend WHERE `order` < {$currentRow["order"]} LIMIT 1";
                 $lowerRow = $this->getRow($sql);
                 if($lowerRow == "") return $this->makeResultJson(-2, "fail");

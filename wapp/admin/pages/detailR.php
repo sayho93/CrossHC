@@ -83,8 +83,9 @@
 
                     <a class="button primary fit jFind small">
                         이미지 찾기/등록
-                        <input type="file" name="imgFile" style="opacity:0; position: absolute;"/>
+                        <input type="file" class="" name="imgFile" style="opacity:0; position: absolute; left:0px; width:100%; " placeholder="이미지 찾기/등록"/>
                     </a>
+
                 </div>
                 <div class="col-6 col-12-small">
                     <input type="checkbox" name="exposure" id="checkbox-alpha" <?=$item["exposure"] == "1" ? "checked" : ""?> value="<?=$item["exposure"]?>">

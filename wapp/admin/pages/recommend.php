@@ -33,7 +33,7 @@
             var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.changeRecommendOrder", false, "json", params);
             ajax.send(function(data){
                 if(data.returnCode === 1) location.reload();
-                else if(data.returnCode === -1) alert("이미 최상단에 위치해 있습니다");
+                else if(data.returnCode === -2) alert("이미 최상단에 위치해 있습니다");
             });
         });
 
@@ -42,7 +42,8 @@
             var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.changeRecommendOrder", false, "json", params);
             ajax.send(function(data){
                 if(data.returnCode === 1) location.reload();
-                else if(data.returnCode === -2) alert("이미 최하단에 위치해 있습니다");
+                else if(data.returnCode === -1) alert("이미 최하단에 위치해 있습니다");
+
             });
         });
 

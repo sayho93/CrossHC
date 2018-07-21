@@ -25,7 +25,7 @@ if(!class_exists("ApiList")){
                 SELECT * 
                 FROM tblRecommend
                 WHERE appId = {$appId} AND exposure = 1
-                ORDER BY regDate DESC 
+                ORDER BY `order` ASC 
             ";
 
             $res = $this->getArray($sql);
@@ -52,7 +52,7 @@ if(!class_exists("ApiList")){
             $sql = "
                 SELECT * FROM tblStage
                 WHERE appId = {$appId}
-                ORDER BY regDate DESC
+                ORDER BY `order` ASC
             ";
 
             $stageList = $this->getArray($sql);
@@ -63,7 +63,7 @@ if(!class_exists("ApiList")){
                 $sql = "
                     SELECT * FROM tblQuestion
                     WHERE stageId = {$stageId} 
-                    
+                    ORDER BY `order` ASC
                 ";
 
                 $questionList = $this->getArray($sql);
@@ -74,7 +74,6 @@ if(!class_exists("ApiList")){
                     $sql = "
                         SELECT * FROM tblAnswer
                         WHERE questionId = {$questionId}
-                        
                     ";
 
                     $answerList = $this->getArray($sql);
