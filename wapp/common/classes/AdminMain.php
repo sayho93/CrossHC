@@ -214,6 +214,18 @@ if(!class_exists("AdminMain")){
             }
         }
 
+        function deleteRecommend(){
+            $noArr = $this->req["no"];
+            $noStr = implode(',', $noArr);
+
+            $sql = "
+                DELETE FROM tblRecommend
+                WHERE `id` IN ({$noStr})
+            ";
+            $this->update($sql);
+            return $this->makeResultJson(1, "succ");
+        }
+
         function manageRecommend(){
 
         }
