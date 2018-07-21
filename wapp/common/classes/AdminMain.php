@@ -152,12 +152,27 @@ if(!class_exists("AdminMain")){
         }
 
         function recommendList(){
+            $appId = $_REQUEST["appId"];
+
             $sql = "
                 SELECT * FROM tblRecommend
+                WHERE appId = {$appId}
                 ORDER by `order` DESC
             ";
 
             return $this->getArray($sql);
+        }
+
+        function recommendDetail(){
+            $appId = $_REQUEST["appId"];
+            $id = $_REQUEST["id"];
+
+            $sql = "
+                SELECT * FROM tblRecommend
+                WHERE `appId` = {$appId} AND `id` = {$id}
+                LIMIT 1
+            ";
+            return $this->getRow($sql);
         }
 
         function changeRecommendOrder(){
@@ -227,7 +242,16 @@ if(!class_exists("AdminMain")){
         }
 
         function manageRecommend(){
-
+            $check = getimagesize($_FILES["imgFile"]["tmp_name"]);
+            if($check !== false) {
+                //TODO img upload
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                //TODO data without img
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
         }
 
     }

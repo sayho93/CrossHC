@@ -18,9 +18,13 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
 
 
-    <script src="../vendors/jquery-1.9.1.js"></script>
+<!--    <script src="../vendors/jquery-1.9.1.js"></script>-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
     <script type="text/javascript" src="/modules/ajaxCall/ajaxClass.js"></script>
     <script type="text/javascript" src="/modules/sehoMap/sehoMap.js"></script>
+
 
 </head>
 

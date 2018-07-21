@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -13,18 +12,20 @@
 <?
     $obj = new AdminMain($_REQUEST);
     $list = $obj->recommendList();
+
+    $appId = $_REQUEST["appId"];
 ?>
 <script>
     $(document).ready(function(){
         $(".jManage").click(function(){
             var id = $(this).attr("id");
-            location.href = "/admin/pages/detailR.php?id=" + id;
+            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>&id=" + id;
         });
 
         //추첩앱 바로가기 기능
         $("#category").change(function(){
             var id = $("#category").val();
-            location.href = "/admin/pages/detailR.php?id=" + id;
+            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>&id=" + id;
         });
 
         $(".jOrderUp").click(function(){

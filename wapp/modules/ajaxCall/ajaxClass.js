@@ -49,9 +49,37 @@ AjaxSender.prototype = {
             success: function (data){
                 console.log(data);
                 callback(data);
+            },
+            error : function(req, res, err){
+                alert(req+res+err);
             }
         });
     }
 };
 
+var AjaxSubmit = function(url, type, forceSync, dataType, target){
+    this.url = url;
+    this.type = type;
+    this.forceSync = forceSync;
+    this.dataType = dataType;
+    this.target = target;
 
+};
+
+AjaxSubmit.prototype = {
+    send : function(callback){
+        $(this.target).ajaxSubmit({
+            url: this.url,
+            type : this.type,
+            forceSync : this.forceSync,
+            dataType : this.dataType,
+            success : function(data){
+                console.log(data);
+                callback(data);
+            },
+            error : function(req, res, error){
+                alert(req+res+error);
+            }
+        });
+    }
+};
