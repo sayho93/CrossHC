@@ -241,17 +241,53 @@ if(!class_exists("AdminMain")){
             return $this->makeResultJson(1, "succ");
         }
 
+        function exactTime(){
+            $t = explode(' ',microtime());
+            return floor(($t[0] + $t[1])*1000);
+
+        }
+
+        function makeFileName(){
+            srand((double)microtime()*1000000) ;
+            $Rnd = rand(1000000,2000000) ;
+            $Temp = date("Ymdhis") ;
+            return $Temp.$Rnd;
+
+        }
         function manageRecommend(){
             $check = getimagesize($_FILES["imgFile"]["tmp_name"]);
-            if($check !== false) {
-                //TODO img upload
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                //TODO data without img
-                echo "File is not an image.";
-                $uploadOk = 0;
+            $appId = $_REQUEST["appId"];
+            $id = $_REQUEST["id"];
+            $appName = $_REQUEST["appName"];
+            $appDesc = $_REQUEST["appDesc"];
+            $packageName = $_REQUEST["packageName"];
+            $exposure = $_REQUEST["exposure"] == "" ? 0 : $_REQUEST["exposure"];
+            $imgPath = $_REQUEST["imgPath"];
+
+            if($check !== false){
+                $targetDir = $this->filePath . date("Ymd") . $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) {
+                    return $this->makeResultJson(1, "succ");
+                }
+                else{
+                    return $this->makeResultJson(-1, "fail");
+                }
             }
+            else{
+                //data without img
+                $sql = "
+                    UPDATE tblRecommend
+                    SET
+                      `appName` = '{$appName}',
+                      `appDesc` = '{$appDesc}',
+                      `packageName` = '{$packageName}',
+                      `exposure` = '{$exposure}',
+                      `uptDate` = NOW()
+                    WHERE `id` = {$id} AND `appId` = {$appId}
+                ";
+                $this->update($sql);
+            }
+            return $this->makeResultJson(1, "succ");
         }
 
     }

@@ -32,6 +32,12 @@
         $(".jFind").click(function(){
 
         });
+
+        $("[name=exposure]").change(function(){
+            var checked = $(this).prop("checked");
+            if(checked) $(this).val(1);
+            else $(this).val(0);
+        });
     });
 </script>
 
@@ -81,7 +87,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-12-small">
-                    <input type="checkbox" id="checkbox-alpha" name="checkbox" <?=$item["exposure"] == "1" ? "checked" : ""?>>
+                    <input type="checkbox" name="exposure" id="checkbox-alpha" <?=$item["exposure"] == "1" ? "checked" : ""?> value="<?=$item["exposure"]?>">
                     <label for="checkbox-alpha">앱 리스트 내 노출 여부</label>
                 </div>
                 <!-- Break -->

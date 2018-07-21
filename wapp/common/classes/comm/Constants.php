@@ -19,6 +19,7 @@ if(! class_exists("Constants") )
 //		var $webRoot				= "http://localhost:9880/wapp" ;
 //		var $con_domain				= "http://localhost:9880" ;	// 메일에서 사용되는 도메인
 //
+        var $filePath                = "/usr/local/var/CrossMedia_hc/wapp/uploadFiles/";
 
         var $serverRoot				= "http://huneps.com:10040/";
 				
