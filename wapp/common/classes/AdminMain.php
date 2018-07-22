@@ -163,13 +163,21 @@ if(!class_exists("AdminMain")){
             return $this->getArray($sql);
         }
 
+        function appInfo(){
+            $appId = $_REQUEST["appId"];
+            $sql = "
+                SELECT * FROM tblApps WHERE `id` = '{$appId}' LIMIT 1
+            ";
+            return $this->getRow($sql);
+        }
+
         function recommendDetail(){
             $appId = $_REQUEST["appId"];
             $id = $_REQUEST["id"];
 
             $sql = "
                 SELECT * FROM tblRecommend
-                WHERE `appId` = {$appId} AND `id` = {$id}
+                WHERE `appId` = '{$appId}' AND `id` = '{$id}'
                 LIMIT 1
             ";
             return $this->getRow($sql);
@@ -262,19 +270,44 @@ if(!class_exists("AdminMain")){
             $appDesc = $_REQUEST["appDesc"];
             $packageName = $_REQUEST["packageName"];
             $exposure = $_REQUEST["exposure"] == "" ? 0 : $_REQUEST["exposure"];
-            $imgPath = $_REQUEST["imgPath"];
+            $imgPath = NULL;
 
-            if($check !== false){
-                $targetDir = $this->filePath . date("Ymd") . $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
-                if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) {
-                    return $this->makeResultJson(1, "succ");
+            if($id == ""){
+                if($check !== false){
+                    $name = $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                    $targetDir = $this->filePath . $name;
+                    if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) $imgPath = $name;
+                    else return $this->makeResultJson(-1, "fail");
                 }
-                else{
-                    return $this->makeResultJson(-1, "fail");
-                }
+                $sql = "SELECT `order` FROM tblRecommend WHERE appId = '{$appId}' ORDER BY `order` DESC LIMIT 1";
+                $order = $this->getValue($sql, "order");
+                $order++;
+
+                $sql = "
+                        INSERT INTO tblRecommend(`appId`, `appName`, `appDesc`, `order`, `packageName`, `exposure`, `imgPath`, `uptDate`, `regDate`)
+                        VALUES(
+                          '{$appId}',
+                          '{$appName}',
+                          '{$appDesc}',
+                          '{$order}',
+                          '{$packageName}',
+                          '{$exposure}',
+                          '{$imgPath}',
+                          NOW(),
+                          NOW()
+                        )
+                    ";
+                $this->update($sql);
             }
             else{
-                //data without img
+                $imgPath = $_REQUEST["imgPath"];
+                if($check !== false){
+                    //data with img
+                    $name = $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                    $targetDir = $this->filePath . $name;
+                    if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) $imgPath = $name;
+                    else return $this->makeResultJson(-1, "fail");
+                }
                 $sql = "
                     UPDATE tblRecommend
                     SET
@@ -282,6 +315,7 @@ if(!class_exists("AdminMain")){
                       `appDesc` = '{$appDesc}',
                       `packageName` = '{$packageName}',
                       `exposure` = '{$exposure}',
+                      `imgPath` = '{$imgPath}',
                       `uptDate` = NOW()
                     WHERE `id` = {$id} AND `appId` = {$appId}
                 ";

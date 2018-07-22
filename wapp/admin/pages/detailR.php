@@ -11,6 +11,7 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
     $obj = new AdminMain($_REQUEST);
+    $info = $obj->appInfo();
     $item = $obj->recommendDetail();
 ?>
 
@@ -19,9 +20,8 @@
         $(".jAdd").click(function(){
             var ajax = new AjaxSubmit("/action_front.php?cmd=AdminMain.manageRecommend", "post", true, "json", "#form");
             ajax.send(function(data){
-                if(data.returnCode === 1){
-                    alert("succ");
-                }
+                if(data.returnCode === 1) location.reload();
+                else alert("이미지 저장 실패");
             });
         });
 
@@ -29,15 +29,26 @@
             history.back();
         });
 
-        $(".jFind").click(function(){
-
-        });
-
         $("[name=exposure]").change(function(){
             var checked = $(this).prop("checked");
             if(checked) $(this).val(1);
             else $(this).val(0);
         });
+
+        $("[name=imgFile]").change(function(){
+            readURL(this);
+            $("#imgPath").val("");
+        });
+
+        function readURL(input){
+            if (input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $(".jImg").attr("src", e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     });
 </script>
 
@@ -58,9 +69,9 @@
     <div class="inner">
 
         <h2>추천 앱 등록/수정</h2>
-        <h3>앱 01 - 추천 앱 01</h3> <!-- 수정모드일 경우 -->
+        <h3>앱 <?=$info["appName"]?> - 추천 앱 <?=$item["appName"]?></h3> <!-- 수정모드일 경우 -->
         <form method="post" id="form" action="#" enctype="multipart/form-data">
-            <input type="hidden" name="appId" desc="앱 번호" value="<?=$item["appId"]?>"/>
+            <input type="hidden" name="appId" desc="앱 번호" value="<?=$_REQUEST["appId"]?>"/>
             <input type="hidden" name="id" desc="기본키" value="<?=$item["id"]?>"/>
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
@@ -77,7 +88,7 @@
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>썸네일 이미지</h5>
-                    <span class="image fit"><img src="<?=$item["imgPath"]?>" alt="" /></span>
+                    <span class="image fit"><img class="jImg" src="<?=$obj->fileShowPath . $item["imgPath"]?>" alt="" /></span>
                     <input type="text" name="imgPath" id="imgPath" value="<?=$item["imgPath"]?>" placeholder="썸네일 이미지를 선택하세요" READONLY />
                     <br/>
 

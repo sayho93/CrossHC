@@ -54,7 +54,10 @@
                 $(".jRecommend").prop("checked", false);
         });
 
-        //TODO
+        $(".jAdd").click(function(){
+            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>";
+        });
+
         $(".jDel").click(function(){
             var noArr = new Array();
             var noCount = $(".jRecommend:checked").length;
@@ -64,22 +67,14 @@
             }
             if(confirm("삭제하시겠습니까?")){
                 for(var i = 0; i < noCount; i++ ) noArr[i] = $(".jRecommend:checked:eq(" + i + ")").val();
-                deleteUser(noArr);
+                deleteRecommend(noArr);
             }
         });
 
-        //TODO
-        function deleteUser(noArr){
+        function deleteRecommend(noArr){
             var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteRecommend", false, "json", new sehoMap().put("no", noArr));
             ajax.send(function(data){
-
                 if(data.returnCode == 1){
-                    if(noArr.includes("<?=$obj->admUser->adminNo?>")){
-                        alert("현재 로그인 되어있는 관리자 계정이 삭제되어 로그아웃 됩니다.");
-                        $(".jLogout").trigger("click");
-                        return;
-
-                    }
                     alert("삭제되었습니다");
                     location.reload();
                 }
@@ -124,6 +119,7 @@
                         <input type="checkbox" id="jCheckAll">
                         <label for="jCheckAll">전체</label>
                         <a href="#" class="button primary small jDel">선택 항목 삭제</a>
+                        <a href="#" class="button primary small jAdd">추천 앱 추가</a>
                     </div>
                 </li>
 
