@@ -275,7 +275,7 @@
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
                     <h5>문제 항목 이미지 - 게임화면 하단 표시</h5>
-                    <span class="image fit"><img id="qImg" src="<?=$obj->fileShowPath . $item["imgPath"]?>" alt="" /></span>
+                    <span class="image fit"><img id="qImg" class="jImg" src="<?=$obj->fileShowPath . $item["imgPath"]?>" alt="" /></span>
 
                     <!-- Break -->
                     <div class="col-12" >

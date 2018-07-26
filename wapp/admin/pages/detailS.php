@@ -45,7 +45,7 @@
         });
 
         $(".jAdd").click(function(){
-            location.href = "/admin/pages/answer.php?appId=<?=$info["id"]?>&stageId=<?=$_REQUEST["id"]?>";
+            location.href = "/admin/pages/answer.php?appId=<?=$info["id"]?>&stageId=<?=$_REQUEST["stageId"]?>";
         });
 
         $(".jDel").click(function(){

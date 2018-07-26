@@ -120,15 +120,20 @@ if(!class_exists("AdminMain")){
                 SELECT * FROM tblApps
                 ORDER BY regDate DESC
             ";
-
             return $this->getArray($sql);
         }
 
         function deleteApp(){
             $appId = $_REQUEST["appId"];
-            $sql = "DELETE FROM tblApps WHERE id = {$appId}";
+            $sql = "DELETE FROM tblApps WHERE id = '{$appId}'";
             $this->update($sql);
+            return $this->makeResultJson(1, "succ");
+        }
 
+        function updateApp(){
+            $appId = $_REQUEST["appId"];
+            $sql = "UPDATE tblApps SET version = version + 1 WHERE `id` = '{$appId}'";
+            $this->update($sql);
             return $this->makeResultJson(1, "succ");
         }
 
@@ -591,7 +596,7 @@ if(!class_exists("AdminMain")){
                 $sql = "
                     INSERT INTO tblQuestion(`stageId`, `imgPath`,`uptDate`, `regDate`)
                     VALUES(
-                      '{$id}',
+                      '{$stageId}',
                       '{$imgPath}',
                       NOW(),
                       NOW()
