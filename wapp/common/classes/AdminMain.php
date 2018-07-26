@@ -191,14 +191,14 @@ if(!class_exists("AdminMain")){
             $currentRow = $this->getRow($sql);
 
             if($type == -1){
-                $sql = "SELECT * FROM tblRecommend WHERE `order` > {$currentRow["order"]} LIMIT 1";
+                $sql = "SELECT * FROM tblRecommend WHERE `order` > {$currentRow["order"]} ORDER BY `order` ASC LIMIT 1";
                 $upperRow = $this->getRow($sql);
                 if($upperRow == "") return $this->makeResultJson(-1, "fail");
                 else{
                     $sql = "
                         UPDATE tblRecommend
                         SET `order` = {$currentRow["order"]}
-                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblRecommend WHERE `order` > {$currentRow["order"]} LIMIT 1) tmp)
+                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblRecommend WHERE `order` > {$currentRow["order"]} ORDER BY `order` ASC LIMIT 1) tmp)
                     ";
                     $this->update($sql);
 
@@ -212,14 +212,14 @@ if(!class_exists("AdminMain")){
                 }
             }
             else if($type == 1){
-                $sql = "SELECT * FROM tblRecommend WHERE `order` < {$currentRow["order"]} LIMIT 1";
+                $sql = "SELECT * FROM tblRecommend WHERE `order` < {$currentRow["order"]} ORDER BY `order` DESC LIMIT 1";
                 $lowerRow = $this->getRow($sql);
                 if($lowerRow == "") return $this->makeResultJson(-2, "fail");
                 else{
                     $sql = "
                         UPDATE tblRecommend
                         SET `order` = {$currentRow["order"]}
-                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblRecommend WHERE `order` < {$currentRow["order"]} LIMIT 1) tmp)
+                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblRecommend WHERE `order` < {$currentRow["order"]} ORDER BY `order` DESC LIMIT 1) tmp)
                     ";
                     $this->update($sql);
 
@@ -322,6 +322,18 @@ if(!class_exists("AdminMain")){
                 $this->update($sql);
             }
             return $this->makeResultJson(1, "succ");
+        }
+
+        function stageList(){
+            $appId = $_REQUEST["appId"];
+
+            $sql = "
+                SELECT * FROM tblStage
+                WHERE appId = {$appId}
+                ORDER by `order` ASC
+            ";
+
+            return $this->getArray($sql);
         }
 
     }

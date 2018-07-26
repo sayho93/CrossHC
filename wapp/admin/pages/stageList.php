@@ -10,24 +10,76 @@
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
+    $obj = new AdminMain($_REQUEST);
+    $list = $obj->stageList();
 
+    $appId = $_REQUEST["appId"];
 ?>
 <script>
     $(document).ready(function(){
-        $(".jPage").click(function(){
-            $("[name=page]").val($(this).attr("page"));
-            form.submit();
+        $(".jManage").click(function(){
+            var id = $(this).attr("id");
+            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>&id=" + id;
         });
 
-        $(".jSearch").click(function(){
-            $("[name=searchTxt]").val($("#searchTxt").val());
-            $("[name=form]").submit();
+        //추첩앱 바로가기 기능
+        $("#category").change(function(){
+            var id = $("#category").val();
+            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>&id=" + id;
+        });
+
+        $(".jOrderUp").click(function(){
+            var params = new sehoMap().put("type", 1).put("id", $(this).attr("id"));
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.changeStageOrder", false, "json", params);
+            ajax.send(function(data){
+                if(data.returnCode === 1) location.reload();
+                else if(data.returnCode === -2) alert("이미 최상단에 위치해 있습니다");
+            });
+        });
+
+        $(".jOrderDown").click(function(){
+            var params = new sehoMap().put("type", -1).put("id", $(this).attr("id"));
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.changeStageOrder", false, "json", params);
+            ajax.send(function(data){
+                if(data.returnCode === 1) location.reload();
+                else if(data.returnCode === -1) alert("이미 최하단에 위치해 있습니다");
+
+            });
+        });
+
+        $("#jCheckAll").change(function(){
+            if($(this).is(":checked"))
+                $(".jRecommend").prop("checked", true);
+            else
+                $(".jRecommend").prop("checked", false);
+        });
+
+        $(".jAdd").click(function(){
+            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>";
         });
 
         $(".jDel").click(function(){
-            var id = $(this).attr("no");
+            var noArr = new Array();
+            var noCount = $(".jStage:checked").length;
+            if(noCount == 0){
+                alert("삭제할 사용자를 하나 이상 선택해주세요.");
+                return false;
+            }
+            if(confirm("삭제하시겠습니까?")){
+                for(var i = 0; i < noCount; i++ ) noArr[i] = $(".jStage:checked:eq(" + i + ")").val();
+                deleteStage(noArr);
+            }
         });
+
+        function deleteStage(noArr){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteStage", false, "json", new sehoMap().put("no", noArr));
+            ajax.send(function(data){
+                if(data.returnCode == 1){
+                    alert("삭제되었습니다");
+                    location.reload();
+                }
+            });
+        }
     });
 </script>
 
@@ -70,36 +122,19 @@ $obj = new AdminMain($_REQUEST);
                         <a href="#" class="button primary small">선택 항목 삭제</a>
                     </div>
                 </li>
-                <li>
-                    <div class="col-6 col-12-small">
-                        <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                        <label for="checkbox-alpha">스테이지 01</label>
-                    </div>
-                    <a href="#" class="button primary small">관리</a>&nbsp;
-                    <a href="#" class="button small">▲</a>&nbsp;
-                    <a href="#" class="button small">▼</a>&nbsp;
-                    Updated At <b>2018-07-19 02:35:17</b>
-                </li>
-                <li>
-                    <div class="col-6 col-12-small">
-                        <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                        <label for="checkbox-alpha">스테이지 02</label>
-                    </div>
-                    <a href="#" class="button primary small">관리</a>&nbsp;
-                    <a href="#" class="button small">▲</a>&nbsp;
-                    <a href="#" class="button small">▼</a>&nbsp;
-                    Updated At <b>2018-07-19 02:35:17</b>
-                </li>
-                <li>
-                    <div class="col-6 col-12-small">
-                        <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                        <label for="checkbox-alpha">스테이지 03</label>
-                    </div>
-                    <a href="#" class="button primary small">관리</a>&nbsp;
-                    <a href="#" class="button small">▲</a>&nbsp;
-                    <a href="#" class="button small">▼</a>&nbsp;
-                    Updated At <b>2018-07-19 02:35:17</b>
-                </li>
+                <?foreach($list as $item){?>
+                    <li>
+                        <div class="col-6 col-12-small">
+                            <input type="checkbox" class="jStage" id="checkbox-alpha<?=$item["id"]?>" value="<?=$item["id"]?>">
+                            <label for="checkbox-alpha<?=$item["id"]?>"><?=$item["stageDesc"]?></label>
+                        </div>
+                        <a href="#" class="button primary small">관리</a>&nbsp;
+                        <a href="#" class="button small jOrderUp">▲</a>&nbsp;
+                        <a href="#" class="button small jOrderDown">▼</a>&nbsp;
+                        Updated At <b><?=$item["uptDate"]?></b>
+                    </li>
+                <?}?>
+
             </ul>
         </div>
 
