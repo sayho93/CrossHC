@@ -207,6 +207,21 @@
             }
         }
 
+        $(".jCancel").click(function(){
+            history.back();
+        });
+
+        $(".jSave").click(function(){
+            $("[name=data]").val(JSON.stringify(coordArr));
+
+            var ajax = new AjaxSubmit("/action_front.php?cmd=AdminMain.manageAnswer", "post", true, "json", "#form");
+            ajax.send(function(data){
+                if(data.returnCode === 1) alert("succ");
+//                    location.href = "/admin/pages/detailS.php?appId=<?//=$appInfo["id"]?>//&stageId=<?//=$stageInfo["id"]?>//";
+                else alert("이미지 저장 실패");
+            });
+        });
+
     });
 </script>
 
@@ -251,7 +266,8 @@
 
         <h2>정답 등록/수정</h2> <!-- tblQuestion의 상세페이지 -->
         <h3>앱 <?=$appInfo["appName"]?> - 스테이지 <?=$stageInfo["stageDesc"]?></h3>
-        <form method="post" action="#">
+        <form method="post" id="form" action="#" enctype="multipart/form-data">
+            <input type="hidden" name="data" />
             <input type="hidden" name="stageId" value="<?=$_REQUEST["stageId"]?>" />
             <input type="hidden" name="questionId" value="<?=$_REQUEST["id"]?>" />
             <!-- 수정이 아닌 등록 시에는 questionId가 없으므로 정답 추가 시
@@ -302,8 +318,8 @@
                 <!-- Break -->
                 <div class="col-12">
                     <ul class="actions">
-                        <li><input type="button" value="등록/수정" class="primary" /></li>
-                        <li><input type="button" value="취소" /></li>
+                        <li><input type="button" value="등록/수정" class="primary jSave" /></li>
+                        <li><input type="button" value="취소" class="jCancel" /></li>
                     </ul>
                 </div>
             </div>

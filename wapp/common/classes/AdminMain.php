@@ -542,32 +542,111 @@ if(!class_exists("AdminMain")){
             return $this->makeResultJson(1, "succ");
         }
 
-        function addAnswer(){
-            $id = $_REQUEST["id"];
-            $x = $_REQUEST["x"];
-            $y = $_REQUEST["y"];
-            $threshold = $_REQUEST["threshold"];
+//        function addAnswer(){
+//            $id = $_REQUEST["id"];
+//            $x = $_REQUEST["x"];
+//            $y = $_REQUEST["y"];
+//            $threshold = $_REQUEST["threshold"];
+//
+//            $sql = "
+//                INSERT INTO tblAnswer(`questionId`, `coordX`, `coordY`, `threshold`)
+//                VALUES(
+//                  '{$id}',
+//                  '{$x}',
+//                  '{$y}',
+//                  '{$threshold}'
+//                )
+//            ";
+//            $this->update($sql);
+//            return $this->makeResultJson(1, "succ");
+//        }
+//
+//        function deleteAnswer(){
+//            $noArr = $this->req["no"];
+//            $noStr = implode(',', $noArr);
+//            $sql = "DELETE FROM tblAnswer WHERE `id` IN ({$noStr})";
+//            $this->update($sql);
+//            return $this->makeResultJson(1, "succ");
+//        }
 
-            $sql = "
-                INSERT INTO tblAnswer(`questionId`, `coordX`, `coordY`, `threshold`)
-                VALUES(
-                  '{$id}',
-                  '{$x}',
-                  '{$y}',
-                  '{$threshold}'
-                )
-            ";
-            $this->update($sql);
+        function manageAnswer(){
+            $check = false;
+            if(isset($_FILES["imgFile"]))
+                $check = getimagesize($_FILES["imgFile"]["tmp_name"]);
+
+            $stageId = $_REQUEST["stageId"];
+            $id = $_REQUEST["questionId"];
+            $data = str_replace("\\", "", $_REQUEST["data"]);
+            $data = json_decode($data);
+            $imgPath = NULL;
+
+            if($id == ""){
+                if($check !== false){
+                    $name = $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                    $targetDir = $this->filePath . $name;
+                    if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) $imgPath = $name;
+                    else return $this->makeResultJson(-1, "fail");
+                }
+
+                $sql = "
+                    INSERT INTO tblQuestion(`stageId`, `imgPath`,`uptDate`, `regDate`)
+                    VALUES(
+                      '{$id}',
+                      '{$imgPath}',
+                      NOW(),
+                      NOW()
+                    )        
+                 ";
+                $this->update($sql);
+
+                $lastId = $this->mysql_insert_id();
+                foreach($data as $item){
+                    $sql = "
+                        INSERT INTO tblAnswer(`questionId`, `coordX`, `coordY`, threshold)
+                        VALUES(
+                          '{$lastId}',
+                          '{$item->x}',
+                          '{$item->y}',
+                          '0.1'
+                        )
+                    ";
+                    $this->update($sql);
+                }
+            }
+            else{
+                $imgPath = $_REQUEST["imgPath"];
+                if($check !== false){
+                    //data with img
+                    $name = $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                    $targetDir = $this->filePath . $name;
+                    if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) $imgPath = $name;
+                    else return $this->makeResultJson(-1, "fail");
+                }
+
+                $sql = "
+                    UPDATE tblQuestion
+                    SET 
+                      `imgPath` = '{$imgPath}',
+                      `uptDate` = NOW()
+                    WHERE `id` = '{$id}'
+                ";
+                $this->update($sql);
+                $sql = "DELETE FROM tblAnswer WHERE `questionId` = '{$id}'";
+                $this->update($sql);
+                foreach($data as $item){
+                    $sql = "
+                        INSERT INTO tblAnswer(`questionId`, `coordX`, `coordY`, `threshold`)
+                        VALUES(
+                          '{$id}',
+                          '{$item->x}',
+                          '{$item->y}',
+                          '0.1'
+                        )
+                    ";
+                    $this->update($sql);
+                }
+            }
             return $this->makeResultJson(1, "succ");
         }
-
-        function deleteAnswer(){
-            $noArr = $this->req["no"];
-            $noStr = implode(',', $noArr);
-            $sql = "DELETE FROM tblAnswer WHERE `id` IN ({$noStr})";
-            $this->update($sql);
-            return $this->makeResultJson(1, "succ");
-        }
-
     }
 }

@@ -11,92 +11,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminMain.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminMain.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/classes/AdminMain.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
-              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+            <state relative-caret-position="196">
+              <caret line="616" column="48" lean-forward="true" selection-start-line="616" selection-start-column="48" selection-end-line="616" selection-end-column="48" />
               <folding>
-                <marker date="1532600117257" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="1336:1374" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="1336:1375" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="1831:1910" ph="INSERT INTO tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2282" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2320" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2328" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2365" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2366" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2375" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2410" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2458" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2245:2459" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2545:2576" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2545:2577" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2545:2583" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2545:2584" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2545:2601" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2545:2606" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="2825:2869" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532600117257" expanded="true" signature="3154:3221" ph="UPDATE tblAdmin... " />
-                <marker date="1532600117257" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
-                <marker date="1532600117257" expanded="true" signature="3614:3645" ph="DELETE FROM tblApps... " />
-                <marker date="1532600117257" expanded="true" signature="3614:3653" ph="DELETE FROM tblApps... " />
-                <marker date="1532600117257" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
-                <marker date="1532600117257" expanded="true" signature="4348:4447" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="4626:4670" ph="SELECT * FRO... tblApps" />
-                <marker date="1532600117257" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
-                <marker date="1532600117257" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="5659:5894" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="6013:6129" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="6649:6885" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="7004:7120" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="7522:7571" ph="DELETE FROM tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="8903:8960" ph="SELECT `orde... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
-                <marker date="1532600117257" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="10288:10675" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="11246:11354" ph="SELECT * FRO... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="11554:11590" ph="SELECT * FRO... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="11699:11789" ph="SELECT * FRO... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="11994:12221" ph="UPDATE tblStage... " />
-                <marker date="1532600117257" expanded="true" signature="12340:12452" ph="UPDATE tblStage... " />
-                <marker date="1532600117257" expanded="true" signature="12672:12763" ph="SELECT * FRO... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="12968:13196" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="13315:13427" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="13825:13870" ph="DELETE FROM tblS... " />
-                <marker date="1532600117257" expanded="true" signature="14687:14770" ph="SELECT `orde... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="14902:14991" ph="INSERT INTO tblStaeg... " />
-                <marker date="1532600117257" expanded="true" signature="14902:15240" ph="INSERT INTO tblStaeg... " />
-                <marker date="1532600117257" expanded="true" signature="15875:16113" ph="UPDATE tblRecommend... " />
-                <marker date="1532600117257" expanded="true" signature="16354:16379" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532600117257" expanded="true" signature="16354:16408" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532600117257" expanded="true" signature="16354:16430" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532600117257" expanded="true" signature="16623:16671" ph="DELETE FROM tblQuestion... " />
-                <marker date="1532600117257" expanded="true" signature="16727:16746" ph="DELETE FROM tblAnswor... " />
-                <marker date="1532600117257" expanded="true" signature="16727:16781" ph="DELETE FROM tblAnswer... " />
-                <marker date="1532600117257" expanded="true" signature="16971:17010" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532600117257" expanded="true" signature="16971:17016" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532600117257" expanded="true" signature="16971:17025" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532600117257" expanded="true" signature="17165:17207" ph="SELECT * FRO... tblAnswer" />
-                <marker date="1532600117257" expanded="true" signature="17165:17208" ph="SELECT * FRO... tblAnswer" />
-                <marker date="1532600117257" expanded="true" signature="17165:17214" ph="SELECT * FRO... tblAnswer" />
-                <marker date="1532600117257" expanded="true" signature="17165:17233" ph="SELECT * FRO... tblAnswer" />
-                <marker date="1532600117257" expanded="true" signature="18024:18107" ph="SELECT `orde... tblStage" />
-                <marker date="1532600117257" expanded="true" signature="18239:18577" ph="INSERT INTO tblStage... " />
-                <marker date="1532600117257" expanded="true" signature="19212:19450" ph="UPDATE tblStage... " />
-                <marker date="1532600117257" expanded="true" signature="19811:19879" ph="INSERT INTO tblAnswer... " />
-                <marker date="1532600117257" expanded="true" signature="19811:20033" ph="INSERT INTO tblAnswer... " />
-                <marker date="1532600117257" expanded="true" signature="20281:20327" ph="DELETE FROM tblAnswer... " />
+                <marker date="1532617113773" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532617113773" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532617113773" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532617113773" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
+                <marker date="1532617113773" expanded="true" signature="2245:2459" ph="UPDATE tblAd... " />
+                <marker date="1532617113773" expanded="true" signature="2545:2601" ph="UPDATE tblAd... " />
+                <marker date="1532617113773" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532617113773" expanded="true" signature="3154:3221" ph="UPDATE tblAd... " />
+                <marker date="1532617113773" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
+                <marker date="1532617113773" expanded="true" signature="3614:3645" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
+                <marker date="1532617113773" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532617113773" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
+                <marker date="1532617113773" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532617113773" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532617113773" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532617113773" expanded="true" signature="5659:5894" ph="UPDATE tblRe... " />
+                <marker date="1532617113773" expanded="true" signature="6013:6129" ph="UPDATE tblRe... " />
+                <marker date="1532617113773" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532617113773" expanded="true" signature="6649:6885" ph="UPDATE tblRe... " />
+                <marker date="1532617113773" expanded="true" signature="7004:7120" ph="UPDATE tblRe... " />
+                <marker date="1532617113773" expanded="true" signature="7522:7571" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
+                <marker date="1532617113773" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
+                <marker date="1532617113773" expanded="true" signature="10288:10675" ph="UPDATE tblRe... " />
+                <marker date="1532617113773" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="11246:11354" ph="SELECT * FRO... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="11554:11590" ph="SELECT * FRO... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="11699:11789" ph="SELECT * FRO... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="11994:12221" ph="UPDATE tblSt... " />
+                <marker date="1532617113773" expanded="true" signature="12340:12452" ph="UPDATE tblSt... " />
+                <marker date="1532617113773" expanded="true" signature="12672:12763" ph="SELECT * FRO... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="12968:13196" ph="UPDATE tblSt... " />
+                <marker date="1532617113773" expanded="true" signature="13315:13427" ph="UPDATE tblSt... " />
+                <marker date="1532617113773" expanded="true" signature="13825:13870" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="14687:14770" ph="SELECT `orde... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="14902:15240" ph="INSERT INTO tblStage... " />
+                <marker date="1532617113773" expanded="true" signature="15875:16113" ph="UPDATE tblSt... " />
+                <marker date="1532617113773" expanded="true" signature="16354:16430" ph="SELECT * FRO... tblQuestion" />
+                <marker date="1532617113773" expanded="true" signature="16623:16671" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="16727:16781" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="16971:17025" ph="SELECT * FRO... tblQuestion" />
+                <marker date="1532617113773" expanded="true" signature="17165:17233" ph="SELECT * FRO... tblAnswer" />
+                <marker date="1532617113773" expanded="true" signature="18024:18107" ph="SELECT `orde... tblStage" />
+                <marker date="1532617113773" expanded="true" signature="18239:18577" ph="INSERT INTO tblStage... " />
+                <marker date="1532617113773" expanded="true" signature="19212:19450" ph="UPDATE tblSt... " />
+                <marker date="1532617113773" expanded="true" signature="19827:20061" ph="INSERT INTO tblAnswer... " />
+                <marker date="1532617113773" expanded="true" signature="20327:20373" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="21358:21476" ph="INSERT INTO tblQuestion... " />
+                <marker date="1532617113773" expanded="true" signature="21358:21598" ph="INSERT INTO tblQuestion... " />
+                <marker date="1532617113773" expanded="true" signature="21811:22086" ph="INSERT INTO tblAnswer... " />
+                <marker date="1532617113773" expanded="true" signature="22743:22785" ph="UPDATE tblQu... " />
+                <marker date="1532617113773" expanded="true" signature="22743:22833" ph="UPDATE tblQu... " />
+                <marker date="1532617113773" expanded="true" signature="22743:22869" ph="UPDATE tblQu... " />
+                <marker date="1532617113773" expanded="true" signature="22743:22915" ph="UPDATE tblQu... " />
+                <marker date="1532617113773" expanded="true" signature="22996:23038" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="22996:23046" ph="DELETE FROM " />
+                <marker date="1532617113773" expanded="true" signature="23180:23248" ph="INSERT INTO tblAnswer... " />
+                <marker date="1532617113773" expanded="true" signature="23180:23453" ph="INSERT INTO tblAnswer... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/classes/comm/Constants.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="760">
+              <caret line="40" column="2" lean-forward="true" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,8 +94,20 @@
       <file leaf-file-name="answer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/pages/answer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+            <state relative-caret-position="576">
+              <caret line="230" column="8" lean-forward="true" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detailR.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/pages/detailR.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="96" column="58" lean-forward="false" selection-start-line="96" selection-start-column="58" selection-end-line="96" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -181,8 +183,6 @@
         <option value="$PROJECT_DIR$/admin/inc/header.php" />
         <option value="$PROJECT_DIR$/modules/ajaxCall/ajaxClass.js" />
         <option value="$PROJECT_DIR$/common/classes/ApiList.php" />
-        <option value="$PROJECT_DIR$/common/classes/comm/Constants.php" />
-        <option value="$PROJECT_DIR$/common/classes/AdminMain.php" />
         <option value="$PROJECT_DIR$/admin/pages/detailA.php" />
         <option value="$PROJECT_DIR$/admin/pages/detailApp.php" />
         <option value="$PROJECT_DIR$/admin/pages/detailR.php" />
@@ -190,6 +190,8 @@
         <option value="$PROJECT_DIR$/admin/pages/recommend.php" />
         <option value="$PROJECT_DIR$/admin/pages/stageList.php" />
         <option value="$PROJECT_DIR$/admin/pages/answer.php" />
+        <option value="$PROJECT_DIR$/common/classes/AdminMain.php" />
+        <option value="$PROJECT_DIR$/common/classes/comm/Constants.php" />
       </list>
     </option>
   </component>
@@ -308,7 +310,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="admin&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/common/classes/AdminMain.php&#10;ans&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/answer.php&#10;det&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/detailR.php&#10;detailS&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/detailS.php&#10;stageL&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/stageList.php&#10;Cons&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/common/classes/comm/Constants.php&#10;reco&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/recommend.php&#10;accountList&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/accountList.php&#10;detailR&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/detailR.php&#10;rec&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/admin/pages/recommend.php&#10;ApiL&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/common/classes/ApiList.php&#10;index&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/admin/index.php&#10;accountL&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/accountList.php&#10;apiL&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/common/classes/ApiList.php&#10;header&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/inc/header.php&#10;applyIn&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/applyInfo.php&#10;mypageMain&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageMain.php&#10;joinM&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep2.php&#10;joinMan&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep1.php&#10;mypageI&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;WebUser&#9;FILE&#9;file:///usr/local/var/test/wapp/common/classes/WebUser.php&#10;phoneA&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/phoneAuth.php&#10;searchMan&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchMan.php&#10;joinMans&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep2.php&#10;mypageIn&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;joinG&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinGearStep1.php&#10;searchG&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchGear.php&#10;mypageM&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageMain.php&#10;applyI&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/applyInfo.php&#10;phon&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/phoneAuth.php&#10;searchM&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchMan.php&#10;applyInfo&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/applyInfo.php&#10;ㅈㄷㅠ&#9;FILE&#9;file:///usr/local/var/test/wapp/common/classes/WebUser.php&#10;paymentI&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/paymentInfo.php&#10;paymentInfo&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/paymentInfo.php&#10;join&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinGearStep1.php&#10;mypage&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;WebU&#9;null&#9;null&#10;joinGear&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinGearStep1.php&#10;mypageIN&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;paymentIn&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/paymentInfo.php&#10;ㅡㅛㅔㅁㅎㄷㅑ&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;ㅓㅐㅑㅜㅡㅁㅜ&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep1.php&#10;searchManTy&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchManType.php&#10;findId&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/findID.php" />
+    <property name="SearchEverywhereHistoryKey" value="Cons&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/common/classes/comm/Constants.php&#10;detailR&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/admin/pages/detailR.php&#10;admin&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/common/classes/AdminMain.php&#10;ans&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/answer.php&#10;det&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/detailR.php&#10;detailS&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/detailS.php&#10;stageL&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/stageList.php&#10;reco&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/recommend.php&#10;accountList&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/accountList.php&#10;rec&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/admin/pages/recommend.php&#10;ApiL&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/common/classes/ApiList.php&#10;index&#9;FILE&#9;file://D:/workspace_integrated/WebstormProjects/CrossHC/wapp/admin/index.php&#10;accountL&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/pages/accountList.php&#10;apiL&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/common/classes/ApiList.php&#10;header&#9;FILE&#9;file:///usr/local/var/CrossMedia_hc/wapp/admin/inc/header.php&#10;applyIn&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/applyInfo.php&#10;mypageMain&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageMain.php&#10;joinM&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep2.php&#10;joinMan&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep1.php&#10;mypageI&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;WebUser&#9;FILE&#9;file:///usr/local/var/test/wapp/common/classes/WebUser.php&#10;phoneA&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/phoneAuth.php&#10;searchMan&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchMan.php&#10;joinMans&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep2.php&#10;mypageIn&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;joinG&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinGearStep1.php&#10;searchG&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchGear.php&#10;mypageM&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageMain.php&#10;applyI&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/applyInfo.php&#10;phon&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/phoneAuth.php&#10;searchM&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchMan.php&#10;applyInfo&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/applyInfo.php&#10;ㅈㄷㅠ&#9;FILE&#9;file:///usr/local/var/test/wapp/common/classes/WebUser.php&#10;paymentI&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/paymentInfo.php&#10;paymentInfo&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/paymentInfo.php&#10;join&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinGearStep1.php&#10;mypage&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;WebU&#9;null&#9;null&#10;joinGear&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinGearStep1.php&#10;mypageIN&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;paymentIn&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/paymentInfo.php&#10;ㅡㅛㅔㅁㅎㄷㅑ&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/mypage/mypageInfo.php&#10;ㅓㅐㅑㅜㅡㅁㅜ&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/joinManStep1.php&#10;searchManTy&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/search/searchManType.php&#10;findId&#9;FILE&#9;file:///usr/local/var/test/wapp/userApp/pages/Account/findID.php" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
@@ -352,22 +354,21 @@
       <workItem from="1531973855741" duration="19596000" />
       <workItem from="1532092239333" duration="5728000" />
       <workItem from="1532191517503" duration="1667000" />
+      <workItem from="1532611742289" duration="4727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77768000" />
+    <option name="totallyTimeSpent" value="82495000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="953" y="0" width="974" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16180556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3308977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -375,22 +376,13 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3308977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -565,12 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <marker date="1511913028000" expanded="true" signature="2976:3080" ph="SELECT * FRO... tbl_user_group" />
-            <marker date="1511913028000" expanded="true" signature="3267:3364" ph="SELECT * FRO... tbl_shop" />
-            <marker date="1511913028000" expanded="true" signature="3531:3609" ph="SELECT * FRO... tbl_category" />
-            <marker date="1511913028000" expanded="true" signature="3813:3887" ph="SELECT * FRO... tbl_user_group" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -586,10 +573,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <marker date="1511913028000" expanded="true" signature="4467:4734" ph="SELECT total... $" />
-            <marker date="1511913028000" expanded="true" signature="4578:4692" ph="SELECT @rown... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -597,10 +581,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <marker date="1511913028000" expanded="true" signature="4890:4979" ph="UPDATE ${$dy... ${$dynaT}" />
-            <marker date="1511913028000" expanded="true" signature="5600:5676" ph="INSERT INTO ${$dynaT}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -630,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
           <caret line="130" column="4" lean-forward="true" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,21 +636,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/classes/comm/Constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/published/answer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="185" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -679,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="460" column="4" lean-forward="false" selection-start-line="460" selection-start-column="4" selection-end-line="460" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="38" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,21 +696,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pages/detailR.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/pages/detailS.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="98" column="64" lean-forward="false" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="64" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#a#0;n#div#1;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="e#6146#6152#0#HTML" expanded="true" />
+            <element signature="e#6146#6152#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -763,105 +719,103 @@
         <state relative-caret-position="1305">
           <caret line="92" column="30" lean-forward="false" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
           <folding>
-            <element signature="e#4648#4654#0#HTML" expanded="true" />
-            <element signature="e#4748#4754#0#HTML" expanded="true" />
+            <element signature="e#4648#4654#0#HTML" expanded="false" />
+            <element signature="e#4748#4754#0#HTML" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/detailR.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="96" column="58" lean-forward="false" selection-start-line="96" selection-start-column="58" selection-end-line="96" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/pages/answer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="576">
+          <caret line="230" column="8" lean-forward="true" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/classes/AdminMain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        <state relative-caret-position="196">
+          <caret line="616" column="48" lean-forward="true" selection-start-line="616" selection-start-column="48" selection-end-line="616" selection-end-column="48" />
           <folding>
-            <marker date="1532600117257" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="1336:1374" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="1336:1375" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="1831:1910" ph="INSERT INTO tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2282" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2320" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2328" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2365" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2366" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2375" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2410" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2458" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2245:2459" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2545:2576" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2545:2577" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2545:2583" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2545:2584" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2545:2601" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2545:2606" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="2825:2869" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532600117257" expanded="true" signature="3154:3221" ph="UPDATE tblAdmin... " />
-            <marker date="1532600117257" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
-            <marker date="1532600117257" expanded="true" signature="3614:3645" ph="DELETE FROM tblApps... " />
-            <marker date="1532600117257" expanded="true" signature="3614:3653" ph="DELETE FROM tblApps... " />
-            <marker date="1532600117257" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
-            <marker date="1532600117257" expanded="true" signature="4348:4447" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="4626:4670" ph="SELECT * FRO... tblApps" />
-            <marker date="1532600117257" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
-            <marker date="1532600117257" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="5659:5894" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="6013:6129" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="6649:6885" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="7004:7120" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="7522:7571" ph="DELETE FROM tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="8903:8960" ph="SELECT `orde... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
-            <marker date="1532600117257" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="10288:10675" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="11246:11354" ph="SELECT * FRO... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="11554:11590" ph="SELECT * FRO... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="11699:11789" ph="SELECT * FRO... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="11994:12221" ph="UPDATE tblStage... " />
-            <marker date="1532600117257" expanded="true" signature="12340:12452" ph="UPDATE tblStage... " />
-            <marker date="1532600117257" expanded="true" signature="12672:12763" ph="SELECT * FRO... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="12968:13196" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="13315:13427" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="13825:13870" ph="DELETE FROM tblS... " />
-            <marker date="1532600117257" expanded="true" signature="14687:14770" ph="SELECT `orde... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="14902:14991" ph="INSERT INTO tblStaeg... " />
-            <marker date="1532600117257" expanded="true" signature="14902:15240" ph="INSERT INTO tblStaeg... " />
-            <marker date="1532600117257" expanded="true" signature="15875:16113" ph="UPDATE tblRecommend... " />
-            <marker date="1532600117257" expanded="true" signature="16354:16379" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532600117257" expanded="true" signature="16354:16408" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532600117257" expanded="true" signature="16354:16430" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532600117257" expanded="true" signature="16623:16671" ph="DELETE FROM tblQuestion... " />
-            <marker date="1532600117257" expanded="true" signature="16727:16746" ph="DELETE FROM tblAnswor... " />
-            <marker date="1532600117257" expanded="true" signature="16727:16781" ph="DELETE FROM tblAnswer... " />
-            <marker date="1532600117257" expanded="true" signature="16971:17010" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532600117257" expanded="true" signature="16971:17016" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532600117257" expanded="true" signature="16971:17025" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532600117257" expanded="true" signature="17165:17207" ph="SELECT * FRO... tblAnswer" />
-            <marker date="1532600117257" expanded="true" signature="17165:17208" ph="SELECT * FRO... tblAnswer" />
-            <marker date="1532600117257" expanded="true" signature="17165:17214" ph="SELECT * FRO... tblAnswer" />
-            <marker date="1532600117257" expanded="true" signature="17165:17233" ph="SELECT * FRO... tblAnswer" />
-            <marker date="1532600117257" expanded="true" signature="18024:18107" ph="SELECT `orde... tblStage" />
-            <marker date="1532600117257" expanded="true" signature="18239:18577" ph="INSERT INTO tblStage... " />
-            <marker date="1532600117257" expanded="true" signature="19212:19450" ph="UPDATE tblStage... " />
-            <marker date="1532600117257" expanded="true" signature="19811:19879" ph="INSERT INTO tblAnswer... " />
-            <marker date="1532600117257" expanded="true" signature="19811:20033" ph="INSERT INTO tblAnswer... " />
-            <marker date="1532600117257" expanded="true" signature="20281:20327" ph="DELETE FROM tblAnswer... " />
+            <marker date="1532617113773" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532617113773" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532617113773" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532617113773" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
+            <marker date="1532617113773" expanded="true" signature="2245:2459" ph="UPDATE tblAd... " />
+            <marker date="1532617113773" expanded="true" signature="2545:2601" ph="UPDATE tblAd... " />
+            <marker date="1532617113773" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532617113773" expanded="true" signature="3154:3221" ph="UPDATE tblAd... " />
+            <marker date="1532617113773" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
+            <marker date="1532617113773" expanded="true" signature="3614:3645" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
+            <marker date="1532617113773" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532617113773" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
+            <marker date="1532617113773" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532617113773" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532617113773" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532617113773" expanded="true" signature="5659:5894" ph="UPDATE tblRe... " />
+            <marker date="1532617113773" expanded="true" signature="6013:6129" ph="UPDATE tblRe... " />
+            <marker date="1532617113773" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532617113773" expanded="true" signature="6649:6885" ph="UPDATE tblRe... " />
+            <marker date="1532617113773" expanded="true" signature="7004:7120" ph="UPDATE tblRe... " />
+            <marker date="1532617113773" expanded="true" signature="7522:7571" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
+            <marker date="1532617113773" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
+            <marker date="1532617113773" expanded="true" signature="10288:10675" ph="UPDATE tblRe... " />
+            <marker date="1532617113773" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="11246:11354" ph="SELECT * FRO... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="11554:11590" ph="SELECT * FRO... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="11699:11789" ph="SELECT * FRO... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="11994:12221" ph="UPDATE tblSt... " />
+            <marker date="1532617113773" expanded="true" signature="12340:12452" ph="UPDATE tblSt... " />
+            <marker date="1532617113773" expanded="true" signature="12672:12763" ph="SELECT * FRO... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="12968:13196" ph="UPDATE tblSt... " />
+            <marker date="1532617113773" expanded="true" signature="13315:13427" ph="UPDATE tblSt... " />
+            <marker date="1532617113773" expanded="true" signature="13825:13870" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="14687:14770" ph="SELECT `orde... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="14902:15240" ph="INSERT INTO tblStage... " />
+            <marker date="1532617113773" expanded="true" signature="15875:16113" ph="UPDATE tblSt... " />
+            <marker date="1532617113773" expanded="true" signature="16354:16430" ph="SELECT * FRO... tblQuestion" />
+            <marker date="1532617113773" expanded="true" signature="16623:16671" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="16727:16781" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="16971:17025" ph="SELECT * FRO... tblQuestion" />
+            <marker date="1532617113773" expanded="true" signature="17165:17233" ph="SELECT * FRO... tblAnswer" />
+            <marker date="1532617113773" expanded="true" signature="18024:18107" ph="SELECT `orde... tblStage" />
+            <marker date="1532617113773" expanded="true" signature="18239:18577" ph="INSERT INTO tblStage... " />
+            <marker date="1532617113773" expanded="true" signature="19212:19450" ph="UPDATE tblSt... " />
+            <marker date="1532617113773" expanded="true" signature="19827:20061" ph="INSERT INTO tblAnswer... " />
+            <marker date="1532617113773" expanded="true" signature="20327:20373" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="21358:21476" ph="INSERT INTO tblQuestion... " />
+            <marker date="1532617113773" expanded="true" signature="21358:21598" ph="INSERT INTO tblQuestion... " />
+            <marker date="1532617113773" expanded="true" signature="21811:22086" ph="INSERT INTO tblAnswer... " />
+            <marker date="1532617113773" expanded="true" signature="22743:22785" ph="UPDATE tblQu... " />
+            <marker date="1532617113773" expanded="true" signature="22743:22833" ph="UPDATE tblQu... " />
+            <marker date="1532617113773" expanded="true" signature="22743:22869" ph="UPDATE tblQu... " />
+            <marker date="1532617113773" expanded="true" signature="22743:22915" ph="UPDATE tblQu... " />
+            <marker date="1532617113773" expanded="true" signature="22996:23038" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="22996:23046" ph="DELETE FROM " />
+            <marker date="1532617113773" expanded="true" signature="23180:23248" ph="INSERT INTO tblAnswer... " />
+            <marker date="1532617113773" expanded="true" signature="23180:23453" ph="INSERT INTO tblAnswer... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/classes/comm/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="2" lean-forward="true" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
