@@ -19,7 +19,7 @@
     $(document).ready(function(){
         $(".jManage").click(function(){
             var id = $(this).attr("id");
-            location.href = "/admin/pages/answer.php?appId=<?=$appId?>&stageId=<?=$_REQUEST["id"]?>&id=" + id;
+            location.href = "/admin/pages/answer.php?appId=<?=$info["id"]?>&stageId=<?=$_REQUEST["stageId"]?>&id=" + id;
         });
 
         $("[name=imgFile]").change(function(){

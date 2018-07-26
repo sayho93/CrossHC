@@ -6,13 +6,14 @@
  * Time: PM 4:00
  */
 ?>
-
-
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
-
+    $obj = new AdminMain($_REQUEST);
+    $appInfo = $obj->appInfo();
+    $stageInfo = $obj->stageDetail();
+    $item = $obj->questionDetail();
+    $answerList = $obj->answerList();
 ?>
 <script>
     $(document).ready(function(){
@@ -81,16 +82,26 @@ $obj = new AdminMain($_REQUEST);
             pointer.show();
         }
 
+        //일반 스크립트
+        $("#jCheckAll").change(function(){
+            if($(this).is(":checked"))
+                $(".jAnswer").prop("checked", true);
+            else
+                $(".jAnswer").prop("checked", false);
+        });
+
     });
 </script>
+
+<div id="pointer" style="border-radius:10px;border:solid 1px black;display:none;width:10px;height:10px;background:red;position:absolute;top:50px;left:100px;z-index:9999;"></div>
 
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.html">Application</a></li>
-        <li><a href="recommend.html">Recommendation</a></li>
-        <li><a href="accountList.html">Account</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="appList.php">Application</a></li>
+        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="accountList.php">Account</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 
@@ -100,7 +111,7 @@ $obj = new AdminMain($_REQUEST);
     <div class="inner">
 
         <h2>정답 등록/수정</h2> <!-- tblQuestion의 상세페이지 -->
-        <h3>앱 01 - 스테이지 01</h3>
+        <h3>앱 <?=$appInfo["appName"]?> - 스테이지 <?=$stageInfo["stageDesc"]?></h3>
         <form method="post" action="#">
             <input type="hidden" name="stageId" value="" />
             <input type="hidden" name="questionId" value="" />
@@ -109,7 +120,7 @@ $obj = new AdminMain($_REQUEST);
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
                     <h5>문제 항목 이미지 - 게임화면 하단 표시</h5>
-                    <span class="image fit"><img id="qImg" src="images/onerror.png" alt="" /></span>
+                    <span class="image fit"><img id="qImg" src="<?=$obj->fileShowPath . $item["imgPath"]?>" alt="" /></span>
 
                     <!-- Break -->
                     <div class="col-12" >
@@ -118,42 +129,24 @@ $obj = new AdminMain($_REQUEST);
                         <ul class="alt">
                             <li>
                                 <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">전체</label>
+                                    <input type="checkbox" id="jCheckAll">
+                                    <label for="jCheckAll">전체</label>
                                     <a href="#" class="button primary small">선택 항목 삭제</a>
                                 </div>
                             </li>
 
-                            <li class="jCoord" cx="0.351350" cy="0.351350">
-                                <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
-                                <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">
-                                        <b>X좌표(%) : </b> 35.1350% <b>Y좌표(%) : </b> 35.1350%
-                                    </label>
-                                    <a href="#" class="button small jDelete">삭제</a>
-                                </div>
-                            </li>
-                            <li class="jCoord" cx="0.751350" cy="0.351350">
-                                <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
-                                <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">
-                                        <b>X좌표(%) : </b> 75.1350% <b>Y좌표(%) : </b> 35.1350%
-                                    </label>
-                                    <a href="#" class="button small jDelete">삭제</a>
-                                </div>
-                            </li>
-                            <li class="jCoord" cx="0.351350" cy="0.551350">
-                                <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
-                                <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">
-                                        <b>X좌표(%) : </b> 35.1350% <b>Y좌표(%) : </b> 55.1350%
-                                    </label>
-                                    <a href="#" class="button small jDelete">삭제</a>
-                                </div>
-                            </li>
+                            <?foreach($answerList as $answerItem){?>
+                                <li class="jCoord" cx="<?=$answerItem["coordX"]?>" cy="<?=$answerItem["coordY"]?>">
+                                    <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
+                                    <div class="col-6 col-12-small">
+                                        <input type="checkbox" class="jAnswer" id="checkbox-alpha<?=$answerItem["id"]?>">
+                                        <label for="checkbox-alpha<?=$answerItem["id"]?>">
+                                            <b>X좌표(%) : </b> <?=$answerItem["coordX"] * 100?>% <b>Y좌표(%) : </b> <?=$answerItem["coordY"] * 100?>%
+                                        </label>
+                                        <a href="#" class="button small jDelete">삭제</a>
+                                    </div>
+                                </li>
+                            <?}?>
                         </ul>
 
                     </div>

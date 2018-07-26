@@ -332,7 +332,7 @@ if(!class_exists("AdminMain")){
 
         function stageDetail(){
             $appId = $_REQUEST["appId"];
-            $id = $_REQUEST["id"];
+            $id = $_REQUEST["stageId"];
 
             $sql = "
                 SELECT * FROM tblStage
@@ -404,7 +404,6 @@ if(!class_exists("AdminMain")){
             return $this->makeResultJson(1, "succ");
         }
 
-        //TODO
         function manageStage(){
             $check = getimagesize($_FILES["imgFile"]["tmp_name"]);
             $appId = $_REQUEST["appId"];
@@ -460,7 +459,7 @@ if(!class_exists("AdminMain")){
         }
 
         function questionList(){
-            $stageId = $_REQUEST["id"];
+            $stageId = $_REQUEST["stageId"];
             $sql = "SELECT * FROM tblQuestion WHERE stageId = '{$stageId}' ORDER BY uptDate DESC";
             return $this->getArray($sql);
         }
@@ -473,6 +472,33 @@ if(!class_exists("AdminMain")){
             $sql = "DELETE FROM tblAnswer WHERE `questionId` IN ({$noStr})";
             $this->update($sql);
             return $this->makeResultJson(1, "succ");
+        }
+
+        function questionDetail(){
+            $id = $_REQUEST["id"];
+            $sql = "SELECT * FROM tblQuestion WHERE `id` = {$id} LIMIT 1";
+            return $this->getRow($sql);
+        }
+
+        function answerList(){
+            $id = $_REQUEST["id"];
+            $sql = "SELECT * FROM tblAnswer WHERE questionId = {$id}";
+            return $this->getArray($sql);
+        }
+
+        //TODO
+        function manageQuestion(){
+
+        }
+
+        //TODO
+        function addAnswer(){
+
+        }
+
+        //TODO
+        function deleteAnswer(){
+
         }
 
     }

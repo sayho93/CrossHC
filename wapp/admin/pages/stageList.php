@@ -19,7 +19,7 @@
     $(document).ready(function(){
         $(".jManage").click(function(){
             var id = $(this).attr("id");
-            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>&id=" + id;
+            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>&stageId=" + id;
         });
 
         //추첩앱 바로가기 기능
