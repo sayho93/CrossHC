@@ -19,7 +19,7 @@
     $(document).ready(function(){
         $(".jManage").click(function(){
             var id = $(this).attr("id");
-            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>&id=" + id;
+            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>&id=" + id;
         });
 
         //추첩앱 바로가기 기능
@@ -129,7 +129,7 @@
                             <input type="checkbox" class="jStage" id="checkbox-alpha<?=$item["id"]?>" value="<?=$item["id"]?>">
                             <label for="checkbox-alpha<?=$item["id"]?>"><?=$item["stageDesc"]?></label>
                         </div>
-                        <a href="#" class="button primary small">관리</a>&nbsp;
+                        <a href="#" class="button primary small jManage" id="<?=$item["id"]?>">관리</a>&nbsp;
                         <a href="#" class="button small jOrderUp" id="<?=$item["id"]?>">▲</a>&nbsp;
                         <a href="#" class="button small jOrderDown" id="<?=$item["id"]?>">▼</a>&nbsp;
                         Updated At <b><?=$item["uptDate"]?></b>

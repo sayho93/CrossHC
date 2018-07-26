@@ -7,28 +7,17 @@
  */
 ?>
 
-
-
 <? include_once $_SERVER['DOCUMENT_ROOT']."/admin/inc/header.php"; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
-$obj = new AdminMain($_REQUEST);
-
+    $obj = new AdminMain($_REQUEST);
+    $info = $obj->appInfo();
+    $item = $obj->stageDetail();
 ?>
 <script>
     $(document).ready(function(){
-        $(".jPage").click(function(){
-            $("[name=page]").val($(this).attr("page"));
-            form.submit();
-        });
-
-        $(".jSearch").click(function(){
-            $("[name=searchTxt]").val($("#searchTxt").val());
-            $("[name=form]").submit();
-        });
-
-        $(".jDel").click(function(){
-            var id = $(this).attr("no");
+        $(".jAdd").click(function(){
+            location.href = "/admin/pages/answer.php?appId=<?=$info["id"]?>&stageId=<?=$_REQUEST["id"]?>";
         });
     });
 </script>
@@ -36,10 +25,10 @@ $obj = new AdminMain($_REQUEST);
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.html">Application</a></li>
-        <li><a href="recommend.html">Recommendation</a></li>
-        <li><a href="accountList.html">Account</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="appList.php">Application</a></li>
+        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="accountList.php">Account</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 
@@ -49,13 +38,13 @@ $obj = new AdminMain($_REQUEST);
     <div class="inner">
 
         <h2>스테이지 등록/수정</h2>
-        <h3>앱 01 - 스테이지 01</h3>
+        <h3>앱 <?=$info["appName"]?> - 스테이지 <?=$item["stageDesc"]?></h3>
         <form method="post" action="#">
             <input type="hidden" name="appId" value="" />
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
                     <h5>스테이지명 - 관리용</h5>
-                    <input type="text" name="stageDesc" id="stageDesc" value="" placeholder="스테이지명 - 관리용" />
+                    <input type="text" name="stageDesc" id="stageDesc" value="<?=$item["stageDesc"]?>" placeholder="스테이지명 - 관리용" />
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>원본 이미지 - 게임화면 상단 표시</h5>
@@ -70,7 +59,7 @@ $obj = new AdminMain($_REQUEST);
                     <div class="col-6 col-12-small">
                         <input type="checkbox" id="checkbox-alpha" name="checkbox">
                         <label for="checkbox-alpha">전체</label>
-                        <a href="#" class="button primary small">항목 추가</a>
+                        <a href="#" class="button primary small jAdd">항목 추가</a>
                         <a href="#" class="button small">선택 항목 삭제</a>
                     </div>
                     <div class="highlights">

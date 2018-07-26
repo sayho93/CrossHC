@@ -331,10 +331,17 @@ if(!class_exists("AdminMain")){
         }
 
         function stageDetail(){
+            $appId = $_REQUEST["appId"];
+            $id = $_REQUEST["id"];
 
+            $sql = "
+                SELECT * FROM tblStage
+                WHERE `appId` = '{$appId}' AND `id` = '{$id}'
+                LIMIT 1
+            ";
+            return $this->getRow($sql);
         }
 
-        //TODO
         function changeStageOrder(){
             $type = $_REQUEST["type"];
             $id = $_REQUEST["id"];
