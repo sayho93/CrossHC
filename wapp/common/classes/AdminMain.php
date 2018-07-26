@@ -408,5 +408,11 @@ if(!class_exists("AdminMain")){
 
         }
 
+        function questionList(){
+            $stageId = $_REQUEST["id"];
+            $sql = "SELECT * FROM tblQuestion WHERE stageId = '{$stageId}' ORDER BY uptDate DESC";
+            return $this->getArray($sql);
+        }
+
     }
 }

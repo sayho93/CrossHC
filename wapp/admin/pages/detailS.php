@@ -13,12 +13,48 @@
     $obj = new AdminMain($_REQUEST);
     $info = $obj->appInfo();
     $item = $obj->stageDetail();
+    $questionList = $obj->questionList();
 ?>
 <script>
     $(document).ready(function(){
+        $(".jManage").click(function(){
+            var id = $(this).attr("id");
+            location.href = "/admin/pages/answer.php?appId=<?=$appId?>&stageId=<?=$_REQUEST["id"]?>&id=" + id;
+        });
+
+        $("#jCheckAll").change(function(){
+            if($(this).is(":checked"))
+                $(".jQuestion").prop("checked", true);
+            else
+                $(".jQuestion").prop("checked", false);
+        });
+
         $(".jAdd").click(function(){
             location.href = "/admin/pages/answer.php?appId=<?=$info["id"]?>&stageId=<?=$_REQUEST["id"]?>";
         });
+
+        $(".jDel").click(function(){
+            var noArr = new Array();
+            var noCount = $(".jQuestion:checked").length;
+            if(noCount == 0){
+                alert("삭제할 항목을 하나 이상 선택해주세요.");
+                return false;
+            }
+            if(confirm("삭제하시겠습니까?")){
+                for(var i = 0; i < noCount; i++ ) noArr[i] = $(".jQuestion:checked:eq(" + i + ")").val();
+                deleteStage(noArr);
+            }
+        });
+
+        function deleteStage(noArr){
+            var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteQuestion", false, "json", new sehoMap().put("no", noArr));
+            ajax.send(function(data){
+                if(data.returnCode == 1){
+                    alert("삭제되었습니다");
+                    location.reload();
+                }
+            });
+        }
     });
 </script>
 
@@ -40,7 +76,8 @@
         <h2>스테이지 등록/수정</h2>
         <h3>앱 <?=$info["appName"]?> - 스테이지 <?=$item["stageDesc"]?></h3>
         <form method="post" action="#">
-            <input type="hidden" name="appId" value="" />
+            <input type="hidden" name="appId" desc="앱 번호" value="<?=$_REQUEST["appId"]?>"/>
+            <input type="hidden" name="id" desc="기본키" value="<?=$item["id"]?>"/>
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
                     <h5>스테이지명 - 관리용</h5>
@@ -48,66 +85,44 @@
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>원본 이미지 - 게임화면 상단 표시</h5>
-                    <span class="image fit"><img src="images/onerror.png" alt="" /></span>
-                    <input type="text" name="originalPath" id="originalPath" value="" placeholder="이미지를 선택하세요" READONLY />
+
+                    <span class="image fit"><img class="jImg" src="<?=$obj->fileShowPath . $item["originalPath"]?>" alt="" /></span>
+                    <input type="text" name="originalPath" id="originalPath" value="<?=$item["originalPath"]?>" placeholder="이미지를 선택하세요" READONLY />
                     <br/>
-                    <a href="#" class="button primary fit jFind small">이미지 찾기/등록</a>
+                    <a class="button primary fit jFind small">
+                        이미지 찾기/등록
+                        <input type="file" class="" name="imgFile" style="opacity:0; position: absolute; left:0px; width:100%; " placeholder="이미지 찾기/등록"/>
+                    </a>
                 </div>
                 <!-- Break -->
                 <div class="col-12" >
                     <h5>스테이지 정답 관리</h5>
                     <div class="col-6 col-12-small">
-                        <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                        <label for="checkbox-alpha">전체</label>
+                        <input type="checkbox" id="jCheckAll">
+                        <label for="jCheckAll">전체</label>
                         <a href="#" class="button primary small jAdd">항목 추가</a>
-                        <a href="#" class="button small">선택 항목 삭제</a>
+                        <a href="#" class="button small jDel">선택 항목 삭제</a>
                     </div>
                     <div class="highlights">
-                        <section>
-                            <div class="content">
-                                <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">선택</label>
+                        <?foreach($questionList as $questionItem){?>
+                            <section>
+                                <div class="content">
+                                    <div class="col-6 col-12-small">
+                                        <input type="checkbox" class="jQuestion" id="checkbox-alpha<?=$questionItem["id"]?>" value="<?=$questionItem["id"]?>">
+                                        <label for="checkbox-alpha<?=$questionItem["id"]?>">선택</label>
+                                    </div>
+                                    <br/>
+                                    <span class="image fit"><img src="<?=$obj->fileShowPath . $questionItem["imgPath"]?>" alt="" /></span>
+                                    <div class="" appId="0">
+                                        <a href="#" class="button primary small jManage" id="<?=$questionItem["id"]?>">관리</a>&nbsp;
+                                        <a href="#" class="button small jDelete" id="<?=$questionItem["id"]?>">삭제</a>&nbsp;
+<!--                                        TODO-->
+                                        <!-- 이를 부모로 가진 tblAnswer 튜플도 삭제되어야 함 -->
+                                        <br/><br/>Updated At <b><?=$questionItem["uptDate"]?></b>
+                                    </div>
                                 </div>
-                                <br/>
-                                <span class="image fit"><img src="images/onerror.png" alt="" /></span>
-                                <div class="" appId="0">
-                                    <a href="#" class="button primary small">관리</a>&nbsp;
-                                    <a href="#" class="button small">삭제</a>&nbsp; <!-- 이를 부모로 가진 tblAnswer 튜플도 삭제되어야 함 -->
-                                    <br/><br/>Updated At <b>2018-07-19 02:35:17</b>
-                                </div>
-                            </div>
-                        </section>
-                        <section>
-                            <div class="content">
-                                <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">선택</label>
-                                </div>
-                                <br/>
-                                <span class="image fit"><img src="images/onerror.png" alt="" /></span>
-                                <div class="" appId="0">
-                                    <a href="#" class="button primary small">관리</a>&nbsp;
-                                    <a href="#" class="button small">삭제</a>&nbsp; <!-- 이를 부모로 가진 tblAnswer 튜플도 삭제되어야 함 -->
-                                    <br/><br/>Updated At <b>2018-07-19 02:35:17</b>
-                                </div>
-                            </div>
-                        </section>
-                        <section>
-                            <div class="content">
-                                <div class="col-6 col-12-small">
-                                    <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                                    <label for="checkbox-alpha">선택</label>
-                                </div>
-                                <br/>
-                                <span class="image fit"><img src="images/onerror.png" alt="" /></span>
-                                <div class="" appId="0">
-                                    <a href="#" class="button primary small">관리</a>&nbsp;
-                                    <a href="#" class="button small">삭제</a>&nbsp; <!-- 이를 부모로 가진 tblAnswer 튜플도 삭제되어야 함 -->
-                                    <br/><br/>Updated At <b>2018-07-19 02:35:17</b>
-                                </div>
-                            </div>
-                        </section>
+                            </section>
+                        <?}?>
                     </div>
 
                 </div>
