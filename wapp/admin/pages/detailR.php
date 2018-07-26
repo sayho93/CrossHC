@@ -20,7 +20,7 @@
         $(".jAdd").click(function(){
             var ajax = new AjaxSubmit("/action_front.php?cmd=AdminMain.manageRecommend", "post", true, "json", "#form");
             ajax.send(function(data){
-                if(data.returnCode === 1) location.reload();
+                if(data.returnCode === 1) location.href = "/admin/pages/recommend.php?appId=<?=$info["id"]?>";
                 else alert("이미지 저장 실패");
             });
         });

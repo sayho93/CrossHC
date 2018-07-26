@@ -11,71 +11,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminMain.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminMain.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/classes/AdminMain.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="413" column="41" lean-forward="false" selection-start-line="413" selection-start-column="41" selection-end-line="413" selection-end-column="41" />
+            <state relative-caret-position="419">
+              <caret line="427" column="41" lean-forward="false" selection-start-line="427" selection-start-column="41" selection-end-line="427" selection-end-column="41" />
               <folding>
-                <marker date="1532586127906" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="1336:1374" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="1336:1375" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="1831:1910" ph="INSERT INTO tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2282" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2320" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2328" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2365" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2366" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2375" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2410" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2458" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2245:2459" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2545:2576" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2545:2577" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2545:2583" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2545:2584" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2545:2601" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2545:2606" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="2825:2869" ph="SELECT * FRO... tblAdmin" />
-                <marker date="1532586127906" expanded="true" signature="3154:3221" ph="UPDATE tblAdmin... " />
-                <marker date="1532586127906" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
-                <marker date="1532586127906" expanded="true" signature="3614:3645" ph="DELETE FROM tblApps... " />
-                <marker date="1532586127906" expanded="true" signature="3614:3653" ph="DELETE FROM tblApps... " />
-                <marker date="1532586127906" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
-                <marker date="1532586127906" expanded="true" signature="4348:4447" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="4626:4670" ph="SELECT * FRO... tblApps" />
-                <marker date="1532586127906" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
-                <marker date="1532586127906" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="5659:5894" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="6013:6129" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="6649:6885" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="7004:7120" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="7522:7571" ph="DELETE FROM tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="8903:8960" ph="SELECT `orde... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
-                <marker date="1532586127906" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="10288:10675" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
-                <marker date="1532586127906" expanded="true" signature="11241:11349" ph="SELECT * FRO... tblStage" />
-                <marker date="1532586127906" expanded="true" signature="11548:11584" ph="SELECT * FRO... tblStage" />
-                <marker date="1532586127906" expanded="true" signature="11693:11783" ph="SELECT * FRO... tblStage" />
-                <marker date="1532586127906" expanded="true" signature="11988:12215" ph="UPDATE tblStage... " />
-                <marker date="1532586127906" expanded="true" signature="12334:12446" ph="UPDATE tblStage... " />
-                <marker date="1532586127906" expanded="true" signature="12666:12757" ph="SELECT * FRO... tblStage" />
-                <marker date="1532586127906" expanded="true" signature="12962:13190" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="13309:13421" ph="UPDATE tblRecommend... " />
-                <marker date="1532586127906" expanded="true" signature="13819:13864" ph="DELETE FROM tblS... " />
-                <marker date="1532586127906" expanded="true" signature="14101:14126" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532586127906" expanded="true" signature="14101:14155" ph="SELECT * FRO... tblQuestion" />
-                <marker date="1532586127906" expanded="true" signature="14101:14177" ph="SELECT * FRO... tblQuestion" />
+                <marker date="1532589221659" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="1336:1374" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="1336:1375" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="1831:1910" ph="INSERT INTO tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2282" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2320" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2328" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2365" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2366" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2375" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2410" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2458" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2245:2459" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2545:2576" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2545:2577" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2545:2583" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2545:2584" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2545:2601" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2545:2606" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="2825:2869" ph="SELECT * FRO... tblAdmin" />
+                <marker date="1532589221659" expanded="true" signature="3154:3221" ph="UPDATE tblAdmin... " />
+                <marker date="1532589221659" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
+                <marker date="1532589221659" expanded="true" signature="3614:3645" ph="DELETE FROM tblApps... " />
+                <marker date="1532589221659" expanded="true" signature="3614:3653" ph="DELETE FROM tblApps... " />
+                <marker date="1532589221659" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
+                <marker date="1532589221659" expanded="true" signature="4348:4447" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="4626:4670" ph="SELECT * FRO... tblApps" />
+                <marker date="1532589221659" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
+                <marker date="1532589221659" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="5659:5894" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="6013:6129" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="6649:6885" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="7004:7120" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="7522:7571" ph="DELETE FROM tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="8903:8960" ph="SELECT `orde... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
+                <marker date="1532589221659" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="10288:10675" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
+                <marker date="1532589221659" expanded="true" signature="11241:11349" ph="SELECT * FRO... tblStage" />
+                <marker date="1532589221659" expanded="true" signature="11548:11584" ph="SELECT * FRO... tblStage" />
+                <marker date="1532589221659" expanded="true" signature="11693:11783" ph="SELECT * FRO... tblStage" />
+                <marker date="1532589221659" expanded="true" signature="11988:12215" ph="UPDATE tblStage... " />
+                <marker date="1532589221659" expanded="true" signature="12334:12446" ph="UPDATE tblStage... " />
+                <marker date="1532589221659" expanded="true" signature="12666:12757" ph="SELECT * FRO... tblStage" />
+                <marker date="1532589221659" expanded="true" signature="12962:13190" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="13309:13421" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="13819:13864" ph="DELETE FROM tblS... " />
+                <marker date="1532589221659" expanded="true" signature="14696:14779" ph="SELECT `orde... tblStage" />
+                <marker date="1532589221659" expanded="true" signature="14911:15000" ph="INSERT INTO tblStaeg... " />
+                <marker date="1532589221659" expanded="true" signature="14911:15249" ph="INSERT INTO tblStaeg... " />
+                <marker date="1532589221659" expanded="true" signature="15884:16122" ph="UPDATE tblRecommend... " />
+                <marker date="1532589221659" expanded="true" signature="16358:16383" ph="SELECT * FRO... tblQuestion" />
+                <marker date="1532589221659" expanded="true" signature="16358:16412" ph="SELECT * FRO... tblQuestion" />
+                <marker date="1532589221659" expanded="true" signature="16358:16434" ph="SELECT * FRO... tblQuestion" />
+                <marker date="1532589221659" expanded="true" signature="16627:16675" ph="DELETE FROM tblQuestion... " />
+                <marker date="1532589221659" expanded="true" signature="16731:16750" ph="DELETE FROM tblAnswor... " />
+                <marker date="1532589221659" expanded="true" signature="16731:16785" ph="DELETE FROM tblAnswer... " />
               </folding>
             </state>
           </provider>
@@ -84,7 +91,7 @@
       <file leaf-file-name="stageList.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/pages/stageList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
+            <state relative-caret-position="903">
               <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
               <folding>
                 <element signature="e#4618#4624#0#HTML" expanded="true" />
@@ -97,7 +104,7 @@
       <file leaf-file-name="recommend.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/pages/recommend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
+            <state relative-caret-position="1845">
               <caret line="128" column="130" lean-forward="false" selection-start-line="128" selection-start-column="106" selection-end-line="128" selection-end-column="130" />
               <folding />
             </state>
@@ -107,21 +114,21 @@
       <file leaf-file-name="detailR.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/pages/detailR.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="91" selection-end-column="137" />
+            <state relative-caret-position="255">
+              <caret line="22" column="104" lean-forward="false" selection-start-line="22" selection-start-column="104" selection-end-line="22" selection-end-column="104" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detailS.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="detailS.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/pages/detailS.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="584">
+              <caret line="84" column="40" lean-forward="true" selection-start-line="84" selection-start-column="40" selection-end-line="84" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#a#0;n#div#1;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="e#4951#4957#0#HTML" expanded="true" />
+                <element signature="e#6106#6112#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,8 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateUserInfo</find>
-      <find>.body</find>
       <find>포인트를</find>
       <find>추가</find>
       <find>addGear</find>
@@ -170,6 +175,8 @@
       <find>recommend</find>
       <find>detail</find>
       <find>delete</find>
+      <find>jCancel</find>
+      <find>manageR</find>
       <find>`</find>
     </findStrings>
     <replaceStrings>
@@ -211,11 +218,11 @@
         <option value="$PROJECT_DIR$/modules/ajaxCall/ajaxClass.js" />
         <option value="$PROJECT_DIR$/common/classes/ApiList.php" />
         <option value="$PROJECT_DIR$/common/classes/comm/Constants.php" />
-        <option value="$PROJECT_DIR$/admin/pages/detailR.php" />
         <option value="$PROJECT_DIR$/admin/pages/recommend.php" />
         <option value="$PROJECT_DIR$/admin/pages/stageList.php" />
-        <option value="$PROJECT_DIR$/common/classes/AdminMain.php" />
         <option value="$PROJECT_DIR$/admin/pages/detailS.php" />
+        <option value="$PROJECT_DIR$/admin/pages/detailR.php" />
+        <option value="$PROJECT_DIR$/common/classes/AdminMain.php" />
       </list>
     </option>
   </component>
@@ -370,7 +377,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65761000" />
+    <option name="totallyTimeSpent" value="67885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -733,85 +740,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pages/answer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="176" column="10" lean-forward="false" selection-start-line="176" selection-start-column="10" selection-end-line="176" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/classes/AdminMain.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="413" column="41" lean-forward="false" selection-start-line="413" selection-start-column="41" selection-end-line="413" selection-end-column="41" />
-          <folding>
-            <marker date="1532586127906" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="1336:1374" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="1336:1375" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="1831:1910" ph="INSERT INTO tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2282" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2320" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2328" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2365" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2366" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2375" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2410" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2458" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2245:2459" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2545:2576" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2545:2577" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2545:2583" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2545:2584" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2545:2601" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2545:2606" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="2825:2869" ph="SELECT * FRO... tblAdmin" />
-            <marker date="1532586127906" expanded="true" signature="3154:3221" ph="UPDATE tblAdmin... " />
-            <marker date="1532586127906" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
-            <marker date="1532586127906" expanded="true" signature="3614:3645" ph="DELETE FROM tblApps... " />
-            <marker date="1532586127906" expanded="true" signature="3614:3653" ph="DELETE FROM tblApps... " />
-            <marker date="1532586127906" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
-            <marker date="1532586127906" expanded="true" signature="4348:4447" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="4626:4670" ph="SELECT * FRO... tblApps" />
-            <marker date="1532586127906" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
-            <marker date="1532586127906" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="5659:5894" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="6013:6129" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="6649:6885" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="7004:7120" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="7522:7571" ph="DELETE FROM tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="8903:8960" ph="SELECT `orde... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
-            <marker date="1532586127906" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="10288:10675" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
-            <marker date="1532586127906" expanded="true" signature="11241:11349" ph="SELECT * FRO... tblStage" />
-            <marker date="1532586127906" expanded="true" signature="11548:11584" ph="SELECT * FRO... tblStage" />
-            <marker date="1532586127906" expanded="true" signature="11693:11783" ph="SELECT * FRO... tblStage" />
-            <marker date="1532586127906" expanded="true" signature="11988:12215" ph="UPDATE tblStage... " />
-            <marker date="1532586127906" expanded="true" signature="12334:12446" ph="UPDATE tblStage... " />
-            <marker date="1532586127906" expanded="true" signature="12666:12757" ph="SELECT * FRO... tblStage" />
-            <marker date="1532586127906" expanded="true" signature="12962:13190" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="13309:13421" ph="UPDATE tblRecommend... " />
-            <marker date="1532586127906" expanded="true" signature="13819:13864" ph="DELETE FROM tblS... " />
-            <marker date="1532586127906" expanded="true" signature="14101:14126" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532586127906" expanded="true" signature="14101:14155" ph="SELECT * FRO... tblQuestion" />
-            <marker date="1532586127906" expanded="true" signature="14101:14177" ph="SELECT * FRO... tblQuestion" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/pages/stageList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
+        <state relative-caret-position="903">
           <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
           <folding>
             <element signature="e#4618#4624#0#HTML" expanded="true" />
@@ -820,9 +751,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/answer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="176" column="10" lean-forward="false" selection-start-line="176" selection-start-column="10" selection-end-line="176" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/detailS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="84" column="40" lean-forward="true" selection-start-line="84" selection-start-column="40" selection-end-line="84" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#a#0;n#div#1;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#6106#6112#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/pages/recommend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
+        <state relative-caret-position="1845">
           <caret line="128" column="130" lean-forward="false" selection-start-line="128" selection-start-column="106" selection-end-line="128" selection-end-column="130" />
           <folding />
         </state>
@@ -830,19 +780,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/pages/detailR.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="91" selection-end-column="137" />
+        <state relative-caret-position="255">
+          <caret line="22" column="104" lean-forward="false" selection-start-line="22" selection-start-column="104" selection-end-line="22" selection-end-column="104" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pages/detailS.php">
+    <entry file="file://$PROJECT_DIR$/common/classes/AdminMain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="419">
+          <caret line="427" column="41" lean-forward="false" selection-start-line="427" selection-start-column="41" selection-end-line="427" selection-end-column="41" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#a#0;n#div#1;n#div#0;n#form#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="e#4951#4957#0#HTML" expanded="true" />
+            <marker date="1532589221659" expanded="true" signature="445:580" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="1088:1181" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="1336:1374" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="1336:1375" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="1336:1397" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="1831:1910" ph="INSERT INTO tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="1831:2148" ph="INSERT INTO tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2282" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2320" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2328" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2365" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2366" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2375" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2410" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2458" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2245:2459" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2545:2576" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2545:2577" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2545:2583" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2545:2584" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2545:2601" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2545:2606" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="2825:2864" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="2825:2869" ph="SELECT * FRO... tblAdmin" />
+            <marker date="1532589221659" expanded="true" signature="3154:3221" ph="UPDATE tblAdmin... " />
+            <marker date="1532589221659" expanded="true" signature="3394:3453" ph="SELECT * FRO... tblApps" />
+            <marker date="1532589221659" expanded="true" signature="3614:3645" ph="DELETE FROM tblApps... " />
+            <marker date="1532589221659" expanded="true" signature="3614:3653" ph="DELETE FROM tblApps... " />
+            <marker date="1532589221659" expanded="true" signature="3912:4122" ph="INSERT INTO tblApps... " />
+            <marker date="1532589221659" expanded="true" signature="4348:4447" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="4348:4450" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="4626:4670" ph="SELECT * FRO... tblApps" />
+            <marker date="1532589221659" expanded="true" signature="4626:4679" ph="SELECT * FRO... tblApps" />
+            <marker date="1532589221659" expanded="true" signature="4896:5008" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="5211:5251" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="5360:5454" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="5659:5894" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="6013:6129" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="6349:6444" ph="SELECT * FRO... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="6649:6885" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="7004:7120" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="7522:7571" ph="DELETE FROM tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="8903:8960" ph="SELECT `orde... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="8903:8990" ph="SELECT `orde... tblRecommend" />
+            <marker date="1532589221659" expanded="true" signature="9126:9654" ph="INSERT INTO tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="10288:10675" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="10927:11025" ph="SELECT * FRO... tblStage" />
+            <marker date="1532589221659" expanded="true" signature="11241:11349" ph="SELECT * FRO... tblStage" />
+            <marker date="1532589221659" expanded="true" signature="11548:11584" ph="SELECT * FRO... tblStage" />
+            <marker date="1532589221659" expanded="true" signature="11693:11783" ph="SELECT * FRO... tblStage" />
+            <marker date="1532589221659" expanded="true" signature="11988:12215" ph="UPDATE tblStage... " />
+            <marker date="1532589221659" expanded="true" signature="12334:12446" ph="UPDATE tblStage... " />
+            <marker date="1532589221659" expanded="true" signature="12666:12757" ph="SELECT * FRO... tblStage" />
+            <marker date="1532589221659" expanded="true" signature="12962:13190" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="13309:13421" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="13819:13864" ph="DELETE FROM tblS... " />
+            <marker date="1532589221659" expanded="true" signature="14696:14779" ph="SELECT `orde... tblStage" />
+            <marker date="1532589221659" expanded="true" signature="14911:15000" ph="INSERT INTO tblStaeg... " />
+            <marker date="1532589221659" expanded="true" signature="14911:15249" ph="INSERT INTO tblStaeg... " />
+            <marker date="1532589221659" expanded="true" signature="15884:16122" ph="UPDATE tblRecommend... " />
+            <marker date="1532589221659" expanded="true" signature="16358:16383" ph="SELECT * FRO... tblQuestion" />
+            <marker date="1532589221659" expanded="true" signature="16358:16412" ph="SELECT * FRO... tblQuestion" />
+            <marker date="1532589221659" expanded="true" signature="16358:16434" ph="SELECT * FRO... tblQuestion" />
+            <marker date="1532589221659" expanded="true" signature="16627:16675" ph="DELETE FROM tblQuestion... " />
+            <marker date="1532589221659" expanded="true" signature="16731:16750" ph="DELETE FROM tblAnswor... " />
+            <marker date="1532589221659" expanded="true" signature="16731:16785" ph="DELETE FROM tblAnswer... " />
           </folding>
         </state>
       </provider>

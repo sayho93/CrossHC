@@ -22,6 +22,21 @@
             location.href = "/admin/pages/answer.php?appId=<?=$appId?>&stageId=<?=$_REQUEST["id"]?>&id=" + id;
         });
 
+        $("[name=imgFile]").change(function(){
+            readURL(this);
+            $("#originalPath").val("");
+        });
+
+        function readURL(input){
+            if (input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $(".jImg").attr("src", e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
         $("#jCheckAll").change(function(){
             if($(this).is(":checked"))
                 $(".jQuestion").prop("checked", true);
@@ -42,11 +57,18 @@
             }
             if(confirm("삭제하시겠습니까?")){
                 for(var i = 0; i < noCount; i++ ) noArr[i] = $(".jQuestion:checked:eq(" + i + ")").val();
-                deleteStage(noArr);
+                deleteQuestion(noArr);
             }
         });
 
-        function deleteStage(noArr){
+        $(".jDelete").click(function(){
+            var noArr = new Array();
+            var id = $(this).attr("id");
+            noArr[0] = id;
+            deleteQuestion(noArr);
+        });
+
+        function deleteQuestion(noArr){
             var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteQuestion", false, "json", new sehoMap().put("no", noArr));
             ajax.send(function(data){
                 if(data.returnCode == 1){
@@ -55,6 +77,18 @@
                 }
             });
         }
+
+        $(".jSubmit").click(function(){
+            var ajax = new AjaxSubmit("/action_front.php?cmd=AdminMain.manageStage", "post", true, "json", "#form");
+            ajax.send(function(data){
+                if(data.returnCode === 1) location.href = "/admin/pages/stageList.php?appId=<?=$info["id"]?>";
+                else alert("이미지 저장 실패");
+            });
+        });
+
+        $(".jCancel").click(function(){
+            history.back();
+        });
     });
 </script>
 
@@ -75,7 +109,7 @@
 
         <h2>스테이지 등록/수정</h2>
         <h3>앱 <?=$info["appName"]?> - 스테이지 <?=$item["stageDesc"]?></h3>
-        <form method="post" action="#">
+        <form method="post" id="form" action="#" enctype="multipart/form-data">
             <input type="hidden" name="appId" desc="앱 번호" value="<?=$_REQUEST["appId"]?>"/>
             <input type="hidden" name="id" desc="기본키" value="<?=$item["id"]?>"/>
             <div class="row gtr-uniform">
@@ -129,8 +163,8 @@
                 <!-- Break -->
                 <div class="col-12">
                     <ul class="actions">
-                        <li><input type="button" value="등록/수정" class="primary" /></li>
-                        <li><input type="button" value="취소" /></li>
+                        <li><input type="button" value="등록/수정" class="primary jSubmit"/></li>
+                        <li><input type="button" value="취소" class="jCancel"/></li>
                     </ul>
                 </div>
             </div>
