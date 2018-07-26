@@ -126,9 +126,7 @@ if(!class_exists("AdminMain")){
 
         function deleteApp(){
             $appId = $_REQUEST["appId"];
-            $sql = "
-                DELETE FROM tblApps WHERE id = {$appId}
-            ";
+            $sql = "DELETE FROM tblApps WHERE id = {$appId}";
             $this->update($sql);
 
             return $this->makeResultJson(1, "succ");
@@ -240,11 +238,7 @@ if(!class_exists("AdminMain")){
         function deleteRecommend(){
             $noArr = $this->req["no"];
             $noStr = implode(',', $noArr);
-
-            $sql = "
-                DELETE FROM tblRecommend
-                WHERE `id` IN ({$noStr})
-            ";
+            $sql = "DELETE FROM tblRecommend WHERE `id` IN ({$noStr})";
             $this->update($sql);
             return $this->makeResultJson(1, "succ");
         }
@@ -334,6 +328,77 @@ if(!class_exists("AdminMain")){
             ";
 
             return $this->getArray($sql);
+        }
+
+        function stageDetail(){
+
+        }
+
+        //TODO
+        function changeStageOrder(){
+            $type = $_REQUEST["type"];
+            $id = $_REQUEST["id"];
+
+            $sql = "SELECT * FROM tblStage WHERE `id` = {$id}";
+            $currentRow = $this->getRow($sql);
+
+            if($type == -1){
+                $sql = "SELECT * FROM tblStage WHERE `order` > {$currentRow["order"]} ORDER BY `order` ASC LIMIT 1";
+                $upperRow = $this->getRow($sql);
+                if($upperRow == "") return $this->makeResultJson(-1, "fail");
+                else{
+                    $sql = "
+                        UPDATE tblStage
+                        SET `order` = {$currentRow["order"]}
+                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblStage WHERE `order` > {$currentRow["order"]} ORDER BY `order` ASC LIMIT 1) tmp)
+                    ";
+                    $this->update($sql);
+
+                    $sql = "
+                        UPDATE tblStage
+                        SET `order` = {$upperRow["order"]}
+                        WHERE `id` = {$id}
+                    ";
+                    $this->update($sql);
+                    return $this->makeResultJson(1, "succ");
+                }
+            }
+            else if($type == 1){
+                $sql = "SELECT * FROM tblStage WHERE `order` < {$currentRow["order"]} ORDER BY `order` DESC LIMIT 1";
+                $lowerRow = $this->getRow($sql);
+                if($lowerRow == "") return $this->makeResultJson(-2, "fail");
+                else{
+                    $sql = "
+                        UPDATE tblStage
+                        SET `order` = {$currentRow["order"]}
+                        WHERE `id` = (SELECT * FROM (SELECT id FROM tblStage WHERE `order` < {$currentRow["order"]} ORDER BY `order` DESC LIMIT 1) tmp)
+                    ";
+                    $this->update($sql);
+
+                    $sql = "
+                        UPDATE tblStage
+                        SET `order` = {$lowerRow["order"]}
+                        WHERE `id` = {$id}
+                    ";
+                    $this->update($sql);
+                    return $this->makeResultJson(1, "succ");
+                }
+            }
+            else{
+                return $this->makeResultJson(-3, "fail");
+            }
+        }
+
+        function deleteStage(){
+            $noArr = $this->req["no"];
+            $noStr = implode(',', $noArr);
+            $sql = "DELETE FROM tblStage WHERE `id` IN ({$noStr})";
+            $this->update($sql);
+            return $this->makeResultJson(1, "succ");
+        }
+
+        function manageStage(){
+
         }
 
     }

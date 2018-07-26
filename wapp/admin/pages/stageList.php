@@ -25,7 +25,7 @@
         //추첩앱 바로가기 기능
         $("#category").change(function(){
             var id = $("#category").val();
-            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>&id=" + id;
+            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>&id=" + id;
         });
 
         $(".jOrderUp").click(function(){
@@ -49,20 +49,20 @@
 
         $("#jCheckAll").change(function(){
             if($(this).is(":checked"))
-                $(".jRecommend").prop("checked", true);
+                $(".jStage").prop("checked", true);
             else
-                $(".jRecommend").prop("checked", false);
+                $(".jStage").prop("checked", false);
         });
 
         $(".jAdd").click(function(){
-            location.href = "/admin/pages/detailR.php?appId=<?=$appId?>";
+            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>";
         });
 
         $(".jDel").click(function(){
             var noArr = new Array();
             var noCount = $(".jStage:checked").length;
             if(noCount == 0){
-                alert("삭제할 사용자를 하나 이상 선택해주세요.");
+                alert("삭제할 항목을 하나 이상 선택해주세요.");
                 return false;
             }
             if(confirm("삭제하시겠습니까?")){
@@ -106,9 +106,9 @@
 
         <select name="category" id="category">
             <option value="">스테이지 바로가기</option>
-            <option value="alpha">스테이지 01</option>
-            <option value="alpha">스테이지 02</option>
-            <option value="alpha">스테이지 03</option>
+            <?foreach($list as $item){?>
+                <option value="<?=$item["id"]?>"><?=$item["stageDesc"]?></option>
+            <?}?>
         </select>
 
         <br/>
@@ -117,9 +117,10 @@
             <ul class="alt">
                 <li>
                     <div class="col-6 col-12-small">
-                        <input type="checkbox" id="checkbox-alpha" name="checkbox">
-                        <label for="checkbox-alpha">전체</label>
-                        <a href="#" class="button primary small">선택 항목 삭제</a>
+                        <input type="checkbox" id="jCheckAll">
+                        <label for="jCheckAll">전체</label>
+                        <a href="#" class="button primary small jDel">선택 항목 삭제</a>
+                        <a href="#" class="button primary small jAdd">스테이지 추가</a>
                     </div>
                 </li>
                 <?foreach($list as $item){?>
@@ -129,8 +130,8 @@
                             <label for="checkbox-alpha<?=$item["id"]?>"><?=$item["stageDesc"]?></label>
                         </div>
                         <a href="#" class="button primary small">관리</a>&nbsp;
-                        <a href="#" class="button small jOrderUp">▲</a>&nbsp;
-                        <a href="#" class="button small jOrderDown">▼</a>&nbsp;
+                        <a href="#" class="button small jOrderUp" id="<?=$item["id"]?>">▲</a>&nbsp;
+                        <a href="#" class="button small jOrderDown" id="<?=$item["id"]?>">▼</a>&nbsp;
                         Updated At <b><?=$item["uptDate"]?></b>
                     </li>
                 <?}?>
