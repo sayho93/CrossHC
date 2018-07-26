@@ -24,7 +24,8 @@
         var coordArr = new Array();
         var delIdArr = new Array();
 
-        var coordObject = function(x, y){
+        var coordObject = function(id, x, y){
+            this.id = id;
             this.x = x;
             this.y = y;
         };
@@ -56,12 +57,12 @@
             var sigX = xcoordRel.toFixed(4);
             var sigY = ycoordRel.toFixed(4);
 
-            alert(
-                "이미지 사이즈 : 가로(" + imgWidth + ") 세로(" + imgHeight + ")\n" +
-                "절대 선택 위치 : 가로(" + xcoordAbs + ") 세로(" + ycoordAbs + ")\n" +
-                "상대 선택 위치 : 가로(" + xcoordRel + ") 세로(" + ycoordRel + ")\n" +
-                "최종 유효 선택 : 가로(" + sigX + ") 세로(" + sigY + ")"
-            );
+            // alert(
+            //     "이미지 사이즈 : 가로(" + imgWidth + ") 세로(" + imgHeight + ")\n" +
+            //     "절대 선택 위치 : 가로(" + xcoordAbs + ") 세로(" + ycoordAbs + ")\n" +
+            //     "상대 선택 위치 : 가로(" + xcoordRel + ") 세로(" + ycoordRel + ")\n" +
+            //     "최종 유효 선택 : 가로(" + sigX + ") 세로(" + sigY + ")"
+            // );
 
             console.log((sigX * 100).toFixed(2) + "::::" + (sigY * 100).toFixed(2));
             // 최종 유효 선택 위치를 DB에 삽입해야 함 - 리스트 표시할 땐 %로 표시
@@ -102,16 +103,16 @@
 
         function addDot(x, y, threshold){
             var template = $("#template").html();
-            template = template.replace("#{id}", startIndex);
+            template = template.replace(/#{id}/gi, startIndex);
             template = template.replace("#{coordX}", x);
             template = template.replace("#{coordY}", y);
             template = template.replace("#{coordX_show}", (x * 100).toFixed(2));
             template = template.replace("#{coordY_show}", (y * 100).toFixed(2));
             $(".target").append(template);
 
-            var obj = new coordObject(x, y);
+            var obj = new coordObject(startIndex, x, y);
             coordArr.push(obj);
-
+            startIndex++;
             console.log(JSON.stringify(coordArr));
 
             //var map = new sehoMap().put("x", x).put("y", y).put("id", '<?//=$_REQUEST["id"]?>//').put("threshold", threshold);
@@ -128,14 +129,14 @@
             var coords = '<?=json_encode($answerList)?>';
             coords = JSON.parse(coords);
             for(var i=0; i<coords.length; i++){
-                var tmpObj = new coordObject(coords[i].coordX, coords[i].coordY);
+                var tmpObj = new coordObject(coords[i].id, coords[i].coordX, coords[i].coordY);
                 coordArr.push(tmpObj);
             }
             console.log(JSON.stringify(coordArr));
         }
 
         /**
-         * 좌표 삭제시 필요한 함수로, coordArr에서 일치하는 좌표값을 제거하는 역할 수행
+         * 좌표 삭제시 필요한 함수로, coordArr에서 일치하는 인덱스를 반환
          * @param x
          * @param y
          */
@@ -145,12 +146,50 @@
             }
         }
 
+        $(".jDel").click(function(){
+            var noArr = new Array();
+            var noCount = $(".jAnswer:checked").length;
+            if(noCount == 0){
+                alert("삭제할 항목을 하나 이상 선택해주세요.");
+                return false;
+            }
+            if(confirm("삭제하시겠습니까?")){
+                for(var i = 0; i < noCount; i++ ) noArr[i] = $(".jAnswer:checked:eq(" + i + ")").val();
+                deleteAnswer(noArr);
+            }
+        });
+
+        $(document).on("click", ".jDelete", function(){
+            var noArr = new Array();
+            var id = $(this).attr("id");
+            noArr[0] = id;
+            deleteAnswer(noArr);
+        });
+
+        //TODO
+        function deleteAnswer(noArr){
+            for(var i=0; i<noArr.length; i++){
+                var index = arrayObjectIndexOf(coordArr, noArr[i], "id");
+                console.log(":::" + index)
+                if(index != -1){
+                    coordArr.splice(index, 1);
+                    $(".jCoord[id=" + noArr[i] + "]").remove();
+                }
+                console.log(JSON.stringify(coordArr));
+            }
+        }
+
+
+        function arrayObjectIndexOf(myArray, searchTerm, property){
+            for(var i = 0, len = myArray.length; i < len; i++)
+                if (myArray[i][property] === searchTerm) return i;
+            return -1;
+        }
+
         //일반 스크립트
         $("#jCheckAll").change(function(){
-            if($(this).is(":checked"))
-                $(".jAnswer").prop("checked", true);
-            else
-                $(".jAnswer").prop("checked", false);
+            if($(this).is(":checked")) $(".jAnswer").prop("checked", true);
+            else $(".jAnswer").prop("checked", false);
         });
 
         $("[name=imgFile]").change(function(){
@@ -178,20 +217,19 @@
         <div class="col-6 col-12-small">
             <input type="checkbox" id="jCheckAll">
             <label for="jCheckAll">전체</label>
-            <a href="#" class="button primary small jDel">선택 항목 삭제</a>
+            <a class="button primary small jDel">선택 항목 삭제</a>
         </div>
     </li>
 </div>
 
 <div id="template" style="display: none;">
-    <li class="jCoord" id="" cx="#{coordX}" cy="#{coordY}">
-        <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
+    <li class="jCoord" id="#{id}" cx="#{coordX}" cy="#{coordY}">
         <div class="col-6 col-12-small">
             <input type="checkbox" class="jAnswer" id="checkbox-alpha#{id}" value="#{id}">
             <label for="checkbox-alpha#{id}">
                 <b>X좌표(%) : </b> #{coordX_show}% <b>Y좌표(%) : </b> #{coordY_show}%
             </label>
-            <a href="#" class="button small jDelete" id="#{id}">삭제</a>
+            <a class="button small jDelete" id="#{id}">삭제</a>
         </div>
     </li>
 </div>
@@ -199,8 +237,8 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.php">Application</a></li>
-        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="appList.php?appId=<?=$_REQUEST["appId"]?>">Application</a></li>
+        <li><a href="recommend.php?appId=<?=$_REQUEST["appId"]?>">Recommendation</a></li>
         <li><a href="accountList.php">Account</a></li>
         <li><a class="jLogout">Logout</a></li>
     </ul>
@@ -232,19 +270,19 @@
                                 <div class="col-6 col-12-small">
                                     <input type="checkbox" id="jCheckAll">
                                     <label for="jCheckAll">전체</label>
-                                    <a href="#" class="button primary small jDel">선택 항목 삭제</a>
+                                    <a class="button primary small jDel">선택 항목 삭제</a>
                                 </div>
                             </li>
 
                             <?foreach($answerList as $answerItem){?>
-                                <li class="jCoord" cx="<?=$answerItem["coordX"]?>" cy="<?=$answerItem["coordY"]?>">
+                                <li class="jCoord" id="<?=$answerItem["id"]?>" cx="<?=$answerItem["coordX"]?>" cy="<?=$answerItem["coordY"]?>">
                                     <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
                                     <div class="col-6 col-12-small">
                                         <input type="checkbox" class="jAnswer" id="checkbox-alpha<?=$answerItem["id"]?>" value="<?=$answerItem["id"]?>">
                                         <label for="checkbox-alpha<?=$answerItem["id"]?>">
                                             <b>X좌표(%) : </b> <?=$answerItem["coordX"] * 100?>% <b>Y좌표(%) : </b> <?=$answerItem["coordY"] * 100?>%
                                         </label>
-                                        <a href="#" class="button small jDelete" id="<?=$answerItem["id"]?>">삭제</a>
+                                        <a class="button small jDelete" id="<?=$answerItem["id"]?>">삭제</a>
                                     </div>
                                 </li>
                             <?}?>

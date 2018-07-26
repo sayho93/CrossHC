@@ -339,6 +339,7 @@ if(!class_exists("AdminMain")){
                 WHERE `appId` = '{$appId}' AND `id` = '{$id}'
                 LIMIT 1
             ";
+
             return $this->getRow($sql);
         }
 
@@ -476,13 +477,13 @@ if(!class_exists("AdminMain")){
 
         function questionDetail(){
             $id = $_REQUEST["id"];
-            $sql = "SELECT * FROM tblQuestion WHERE `id` = {$id} LIMIT 1";
+            $sql = "SELECT * FROM tblQuestion WHERE `id` = '{$id}' LIMIT 1";
             return $this->getRow($sql);
         }
 
         function answerList(){
             $id = $_REQUEST["id"];
-            $sql = "SELECT * FROM tblAnswer WHERE questionId = {$id} ORDER BY `id` ASC";
+            $sql = "SELECT * FROM tblAnswer WHERE questionId = '{$id}' ORDER BY `id` ASC";
             return $this->getArray($sql);
         }
 

@@ -57,7 +57,7 @@
 <nav id="menu">
     <ul class="links">
         <li><a href="appList.php">Application</a></li>
-        <li><a href="recommend.php">Recommendation</a></li>
+        <li><a href="recommend.php?appId=<?=$_REQUEST["appId"]?>">Recommendation</a></li>
         <li><a href="accountList.php">Account</a></li>
         <li><a class="jLogout">Logout</a></li>
     </ul>

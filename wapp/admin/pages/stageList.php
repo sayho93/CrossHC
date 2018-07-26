@@ -87,10 +87,10 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="appList.html">Application</a></li>
-        <li><a href="recommend.html">Recommendation</a></li>
-        <li><a href="accountList.html">Account</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="appList.php">Application</a></li>
+        <li><a href="recommend.php?appId=<?=$_REQUEST["appId"]?>">Recommendation</a></li>
+        <li><a href="accountList.php">Account</a></li>
+        <li><a class="jLogout">Logout</a></li>
     </ul>
 </nav>
 
