@@ -19,17 +19,20 @@
             location.href = "/admin/pages/detailApp.php";
         });
 
-        $(".jManageS").click(function(){
+        $(".jManageS").click(function(e){
+            e.stopPropagation();
             var appId = $(this).attr("appId");
             location.href = "/admin/pages/stageList.php?appId=" + appId;
         });
 
-        $(".jManageR").click(function(){
+        $(".jManageR").click(function(e){
+            e.stopPropagation();
             var appId = $(this).attr("appId");
             location.href = "/admin/pages/recommend.php?appId=" + appId;
         });
 
-        $(".jDelete").click(function(){
+        $(".jDelete").click(function(e){
+            e.stopPropagation();
             var appId = $(this).attr("appId");
             var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteApp", false, "json", new sehoMap().put("appId", appId));
             ajax.send(function(data){
@@ -40,7 +43,8 @@
             });
         });
 
-        $(".jUpdate").click(function(){
+        $(".jUpdate").click(function(e){
+            e.stopPropagation();
             if(confirm("업데이트를 진행하시겠습니까?")){
                 var appId = $(this).attr("appId");
                 var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.updateApp", false, "json", new sehoMap().put("appId", appId));
@@ -51,6 +55,11 @@
                     }
                 })
             }
+        });
+
+        $(".jItem").click(function(){
+            var appId = $(this).attr("id");
+            location.href = "/admin/pages/detailApp.php?appId=" + appId;
         });
     });
 </script>
@@ -77,7 +86,7 @@
 
             <?foreach($appList as $item){?>
                 <section>
-                    <div class="content">
+                    <div class="content jItem" id="<?=$item["id"]?>">
                         <header>
                             <h3><?=$item["appName"]?></h3>
                         </header>

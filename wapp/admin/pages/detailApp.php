@@ -11,6 +11,7 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php";?>
 <?
     $obj = new AdminMain($_REQUEST);
+    $item = $obj->appInfo();
 ?>
 
 <script>
@@ -58,15 +59,15 @@
         <h2>앱 등록/수정</h2>
         <h3>앱 제목이 노출됨</h3> <!-- 수정모드일 경우 -->
         <form name="form" method="post" action="#">
-            <input type="hidden" name="appId" desc="앱 번호" />
+            <input type="hidden" name="appId" value="<?=$_REQUEST["appId"]?>" desc="앱 번호" />
             <div class="row gtr-uniform">
                 <div class="col-12 col-12-xsmall">
                     <h5>앱 제목</h5>
-                    <input type="text" name="appName" id="name" value="" placeholder="앱 제목" />
+                    <input type="text" name="appName" id="name" value="<?=$item["appName"]?>" placeholder="앱 제목" />
                 </div>
                 <div class="col-12 col-12-xsmall">
                     <h5>앱 설명</h5>
-                    <input type="text" name="appDesc" id="appDesc" value="" placeholder="앱 설명" />
+                    <input type="text" name="appDesc" id="appDesc" value="<?=$item["appDesc"]?>" placeholder="앱 설명" />
                 </div>
                 <!-- Break -->
                 <div class="col-12">

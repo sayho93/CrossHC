@@ -138,10 +138,13 @@ if(!class_exists("AdminMain")){
         }
 
         function manageApp(){
+            $appId = $_REQUEST["appId"];
+
             $appName = $_REQUEST["appName"];
             $appDesc = $_REQUEST["appDesc"];
 
-            $sql = "
+            if($appId == ""){
+                $sql = "
                 INSERT INTO tblApps(appName, appDesc, uptDate, regDate)
                 VALUES(
                   '{$appName}',
@@ -150,7 +153,19 @@ if(!class_exists("AdminMain")){
                   NOW()
                 )
             ";
-            $this->update($sql);
+                $this->update($sql);
+            }
+            else{
+                $sql = "
+                    UPDATE tblApps
+                    SET
+                      `appName` = '{$appName}',
+                      `appDesc` = '{$appDesc}',
+                      `uptDate` = NOW()
+                    WHERE `id` = '{$appId}'
+                ";
+                $this->update($sql);
+            }
             return $this->makeResultJson(1, "succ");
         }
 

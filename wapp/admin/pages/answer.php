@@ -216,8 +216,8 @@
 
             var ajax = new AjaxSubmit("/action_front.php?cmd=AdminMain.manageAnswer", "post", true, "json", "#form");
             ajax.send(function(data){
-                if(data.returnCode === 1) alert("succ");
-//                    location.href = "/admin/pages/detailS.php?appId=<?//=$appInfo["id"]?>//&stageId=<?//=$stageInfo["id"]?>//";
+                if(data.returnCode === 1)
+                    location.href = "/admin/pages/detailS.php?appId=<?=$appInfo["id"]?>&stageId=<?=$stageInfo["id"]?>";
                 else alert("이미지 저장 실패");
             });
         });
