@@ -150,7 +150,6 @@
                                     <div class="" appId="0">
                                         <a href="#" class="button primary small jManage" id="<?=$questionItem["id"]?>">관리</a>&nbsp;
                                         <a href="#" class="button small jDelete" id="<?=$questionItem["id"]?>">삭제</a>&nbsp;
-<!--                                        TODO-->
                                         <!-- 이를 부모로 가진 tblAnswer 튜플도 삭제되어야 함 -->
                                         <br/><br/>Updated At <b><?=$questionItem["uptDate"]?></b>
                                     </div>

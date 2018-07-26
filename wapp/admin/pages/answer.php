@@ -14,9 +14,23 @@
     $stageInfo = $obj->stageDetail();
     $item = $obj->questionDetail();
     $answerList = $obj->answerList();
+
+    $largest = $answerList[sizeof($answerList)-1]["id"];
+    $largest++;
 ?>
 <script>
     $(document).ready(function(){
+        var startIndex = "<?=$largest?>";
+        var coordArr = new Array();
+        var delIdArr = new Array();
+
+        var coordObject = function(x, y){
+            this.x = x;
+            this.y = y;
+        };
+
+        addExistingCoords();
+
 
         /**
          * 이미지 위에 점을 표시할 DIV 객체 - Body 최상단에 위치함
@@ -48,20 +62,24 @@
                 "상대 선택 위치 : 가로(" + xcoordRel + ") 세로(" + ycoordRel + ")\n" +
                 "최종 유효 선택 : 가로(" + sigX + ") 세로(" + sigY + ")"
             );
+
+            console.log((sigX * 100).toFixed(2) + "::::" + (sigY * 100).toFixed(2));
             // 최종 유효 선택 위치를 DB에 삽입해야 함 - 리스트 표시할 땐 %로 표시
 
             drawDot(eventObj.pageX, eventObj.pageY, "red");
+
+            addDot(sigX, sigY, 0.1);
         });
 
-        $(".jCoord").click(function(){
+        $(document).on("click", ".jCoord", function(){
             in_jCoord($(this));
         });
 
-        $(".jCoord").mouseover(function(){
+        $(document).on("mouseover", ".jCoord", function(){
             in_jCoord($(this));
         });
 
-        $(".jCoord").mouseout(function(){
+        $(document).on("mouseout", ".jCoord", function(){
             pointer.hide();
         });
 
@@ -82,6 +100,51 @@
             pointer.show();
         }
 
+        function addDot(x, y, threshold){
+            var template = $("#template").html();
+            template = template.replace("#{id}", startIndex);
+            template = template.replace("#{coordX}", x);
+            template = template.replace("#{coordY}", y);
+            template = template.replace("#{coordX_show}", (x * 100).toFixed(2));
+            template = template.replace("#{coordY_show}", (y * 100).toFixed(2));
+            $(".target").append(template);
+
+            var obj = new coordObject(x, y);
+            coordArr.push(obj);
+
+            console.log(JSON.stringify(coordArr));
+
+            //var map = new sehoMap().put("x", x).put("y", y).put("id", '<?//=$_REQUEST["id"]?>//').put("threshold", threshold);
+            //var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.addAnswer", false, "json", map);
+            //ajax.send(function(data){
+            //    console.log(data);
+            //});
+        }
+
+        /**
+         * 최초에 한 번만 실행하는 함수로, 데이터베이스의 좌표값을 javscript array에 저장
+         */
+        function addExistingCoords(){
+            var coords = '<?=json_encode($answerList)?>';
+            coords = JSON.parse(coords);
+            for(var i=0; i<coords.length; i++){
+                var tmpObj = new coordObject(coords[i].coordX, coords[i].coordY);
+                coordArr.push(tmpObj);
+            }
+            console.log(JSON.stringify(coordArr));
+        }
+
+        /**
+         * 좌표 삭제시 필요한 함수로, coordArr에서 일치하는 좌표값을 제거하는 역할 수행
+         * @param x
+         * @param y
+         */
+        function searchArrByCoord(x, y){
+            for(var i=0; i<coordArr.length; i++){
+                if(coordArr[0].x == x && coordArr[0].y == y) console.log("true");
+            }
+        }
+
         //일반 스크립트
         $("#jCheckAll").change(function(){
             if($(this).is(":checked"))
@@ -90,10 +153,48 @@
                 $(".jAnswer").prop("checked", false);
         });
 
+        $("[name=imgFile]").change(function(){
+            readURL(this);
+            $("#imgPath").val("");
+        });
+
+        function readURL(input){
+            if (input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $(".jImg").attr("src", e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
     });
 </script>
 
 <div id="pointer" style="border-radius:10px;border:solid 1px black;display:none;width:10px;height:10px;background:red;position:absolute;top:50px;left:100px;z-index:9999;"></div>
+
+<div id="menuTemplate" style="display:none;">
+    <li>
+        <div class="col-6 col-12-small">
+            <input type="checkbox" id="jCheckAll">
+            <label for="jCheckAll">전체</label>
+            <a href="#" class="button primary small jDel">선택 항목 삭제</a>
+        </div>
+    </li>
+</div>
+
+<div id="template" style="display: none;">
+    <li class="jCoord" id="" cx="#{coordX}" cy="#{coordY}">
+        <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
+        <div class="col-6 col-12-small">
+            <input type="checkbox" class="jAnswer" id="checkbox-alpha#{id}" value="#{id}">
+            <label for="checkbox-alpha#{id}">
+                <b>X좌표(%) : </b> #{coordX_show}% <b>Y좌표(%) : </b> #{coordY_show}%
+            </label>
+            <a href="#" class="button small jDelete" id="#{id}">삭제</a>
+        </div>
+    </li>
+</div>
 
 <!-- Nav -->
 <nav id="menu">
@@ -113,8 +214,8 @@
         <h2>정답 등록/수정</h2> <!-- tblQuestion의 상세페이지 -->
         <h3>앱 <?=$appInfo["appName"]?> - 스테이지 <?=$stageInfo["stageDesc"]?></h3>
         <form method="post" action="#">
-            <input type="hidden" name="stageId" value="" />
-            <input type="hidden" name="questionId" value="" />
+            <input type="hidden" name="stageId" value="<?=$_REQUEST["stageId"]?>" />
+            <input type="hidden" name="questionId" value="<?=$_REQUEST["id"]?>" />
             <!-- 수정이 아닌 등록 시에는 questionId가 없으므로 정답 추가 시
             lastInsertId 사용 요망 -->
             <div class="row gtr-uniform">
@@ -125,13 +226,13 @@
                     <!-- Break -->
                     <div class="col-12" >
                         <h5>문제 항목 정답 관리 - <b>이미지 클릭으로 항목 추가</b></h5>
-                        <!-- 1개 미만인 상태로 등록 시 에러 앨러트 표시 요망 -->
-                        <ul class="alt">
+                        <!-- TODO 1개 미만인 상태로 등록 시 에러 앨러트 표시 요망 -->
+                        <ul class="alt target">
                             <li>
                                 <div class="col-6 col-12-small">
                                     <input type="checkbox" id="jCheckAll">
                                     <label for="jCheckAll">전체</label>
-                                    <a href="#" class="button primary small">선택 항목 삭제</a>
+                                    <a href="#" class="button primary small jDel">선택 항목 삭제</a>
                                 </div>
                             </li>
 
@@ -139,11 +240,11 @@
                                 <li class="jCoord" cx="<?=$answerItem["coordX"]?>" cy="<?=$answerItem["coordY"]?>">
                                     <!-- 각 리스트 마우스 오버 시 이미지 위에 어떤 위치인지 표시 요망 -->
                                     <div class="col-6 col-12-small">
-                                        <input type="checkbox" class="jAnswer" id="checkbox-alpha<?=$answerItem["id"]?>">
+                                        <input type="checkbox" class="jAnswer" id="checkbox-alpha<?=$answerItem["id"]?>" value="<?=$answerItem["id"]?>">
                                         <label for="checkbox-alpha<?=$answerItem["id"]?>">
                                             <b>X좌표(%) : </b> <?=$answerItem["coordX"] * 100?>% <b>Y좌표(%) : </b> <?=$answerItem["coordY"] * 100?>%
                                         </label>
-                                        <a href="#" class="button small jDelete">삭제</a>
+                                        <a href="#" class="button small jDelete" id="<?=$answerItem["id"]?>">삭제</a>
                                     </div>
                                 </li>
                             <?}?>
@@ -151,9 +252,13 @@
 
                     </div>
                     <h5>문제 항목 이미지 등록/수정</h5>
-                    <input type="text" name="imgPath" id="imgPath" value="" placeholder="문제 항목 이미지를 선택하세요" READONLY />
+                    <input type="text" name="imgPath" id="imgPath" value="<?=$item["imgPath"]?>" placeholder="문제 항목 이미지를 선택하세요" READONLY />
                     <br/>
-                    <a href="#" class="button primary fit jFind small">이미지 찾기/등록</a>
+
+                    <a class="button primary fit jFind small">
+                        이미지 찾기/등록
+                        <input type="file" class="" name="imgFile" style="opacity:0; position: absolute; left:0px; width:100%; " placeholder="이미지 찾기/등록"/>
+                    </a>
                 </div>
 
                 <!-- Break -->

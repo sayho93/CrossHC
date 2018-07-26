@@ -482,23 +482,90 @@ if(!class_exists("AdminMain")){
 
         function answerList(){
             $id = $_REQUEST["id"];
-            $sql = "SELECT * FROM tblAnswer WHERE questionId = {$id}";
+            $sql = "SELECT * FROM tblAnswer WHERE questionId = {$id} ORDER BY `id` ASC";
             return $this->getArray($sql);
         }
 
         //TODO
         function manageQuestion(){
+            $check = getimagesize($_FILES["imgFile"]["tmp_name"]);
+            $appId = $_REQUEST["appId"];
+            $id = $_REQUEST["id"];
+            $stageDesc = $_REQUEST["stageDesc"];
 
+            $imgPath = NULL;
+
+            if($id == ""){
+                if($check !== false){
+                    $name = $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                    $targetDir = $this->filePath . $name;
+                    if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) $imgPath = $name;
+                    else return $this->makeResultJson(-1, "fail");
+                }
+                $sql = "SELECT `order` FROM tblStage WHERE appId = '{$appId}' ORDER BY `order` DESC LIMIT 1";
+                $order = $this->getValue($sql, "order");
+                $order++;
+
+                $sql = "
+                    INSERT INTO tblStage(`appId`, `stageDesc`, `order`, `originalPath`, `uptDate`, `regDate`)
+                    VALUES(
+                      '{$appId}',
+                      '{$stageDesc}',
+                      '{$order}',
+                      '{$imgPath}',
+                      NOW(),
+                      NOW()
+                    )
+                ";
+                $this->update($sql);
+            }
+            else{
+                $imgPath = $_REQUEST["originalPath"];
+                if($check !== false){
+                    //data with img
+                    $name = $this->makeFileName() . "." . pathinfo(basename($_FILES["imgFile"]["name"]),PATHINFO_EXTENSION);
+                    $targetDir = $this->filePath . $name;
+                    if(move_uploaded_file($_FILES["imgFile"]["tmp_name"], $targetDir)) $imgPath = $name;
+                    else return $this->makeResultJson(-1, "fail");
+                }
+                $sql = "
+                    UPDATE tblStage
+                    SET
+                      `stageDesc` = '{$stageDesc}',
+                      `originalPath` = '{$imgPath}',
+                      `uptDate` = NOW()
+                    WHERE `id` = {$id} AND `appId` = {$appId}
+                ";
+                $this->update($sql);
+            }
+            return $this->makeResultJson(1, "succ");
         }
 
-        //TODO
         function addAnswer(){
+            $id = $_REQUEST["id"];
+            $x = $_REQUEST["x"];
+            $y = $_REQUEST["y"];
+            $threshold = $_REQUEST["threshold"];
 
+            $sql = "
+                INSERT INTO tblAnswer(`questionId`, `coordX`, `coordY`, `threshold`)
+                VALUES(
+                  '{$id}',
+                  '{$x}',
+                  '{$y}',
+                  '{$threshold}'
+                )
+            ";
+            $this->update($sql);
+            return $this->makeResultJson(1, "succ");
         }
 
-        //TODO
         function deleteAnswer(){
-
+            $noArr = $this->req["no"];
+            $noStr = implode(',', $noArr);
+            $sql = "DELETE FROM tblAnswer WHERE `id` IN ({$noStr})";
+            $this->update($sql);
+            return $this->makeResultJson(1, "succ");
         }
 
     }
