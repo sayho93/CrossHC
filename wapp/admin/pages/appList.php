@@ -33,7 +33,8 @@
 
         $(".jDelete").click(function(e){
             e.stopPropagation();
-            var appId = $(this).attr("appId");
+            if(confirm("삭제하시겠습니까?")){
+                var appId = $(this).attr("appId");
             var ajax = new AjaxSender("/action_front.php?cmd=AdminMain.deleteApp", false, "json", new sehoMap().put("appId", appId));
             ajax.send(function(data){
                 if(data.returnCode === 1){
@@ -41,6 +42,7 @@
                     location.reload();
                 }
             });
+            }
         });
 
         $(".jUpdate").click(function(e){
