@@ -129,7 +129,7 @@
                         <div class="col-6 col-12-small">
                             <input type="checkbox" class="jStage" id="checkbox-alpha<?=$item["id"]?>" value="<?=$item["id"]?>">
                             <label for="checkbox-alpha<?=$item["id"]?>">
-                                <span class="badge badge-info"><?="(" . ++$index . ".) "?></span>
+                                <b><?=++$index . ".  "?></b>
                                 <?=$item["stageDesc"]?>
                             </label>
                         </div>
