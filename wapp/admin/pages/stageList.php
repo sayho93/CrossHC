@@ -25,7 +25,7 @@
         //추첩앱 바로가기 기능
         $("#category").change(function(){
             var id = $("#category").val();
-            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>&id=" + id;
+            location.href = "/admin/pages/detailS.php?appId=<?=$appId?>&stageId=" + id;
         });
 
         $(".jOrderUp").click(function(){
@@ -123,11 +123,15 @@
                         <a href="#" class="button primary small jAdd">스테이지 추가</a>
                     </div>
                 </li>
+                <?$index = 0;?>
                 <?foreach($list as $item){?>
                     <li>
                         <div class="col-6 col-12-small">
                             <input type="checkbox" class="jStage" id="checkbox-alpha<?=$item["id"]?>" value="<?=$item["id"]?>">
-                            <label for="checkbox-alpha<?=$item["id"]?>"><?=$item["stageDesc"]?></label>
+                            <label for="checkbox-alpha<?=$item["id"]?>">
+                                <span class="badge badge-info"><?="(" . ++$index . ".) "?></span>
+                                <?=$item["stageDesc"]?>
+                            </label>
                         </div>
                         <a href="#" class="button primary small jManage" id="<?=$item["id"]?>">관리</a>&nbsp;
                         <a href="#" class="button small jOrderUp" id="<?=$item["id"]?>">▲</a>&nbsp;

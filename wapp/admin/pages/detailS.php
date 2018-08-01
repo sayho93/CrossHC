@@ -129,7 +129,8 @@
                     </a>
                 </div>
                 <!-- Break -->
-                <div class="col-12" >
+                <?if($_REQUEST["stageId"]!= ""){?>
+                    <div class="col-12" >
                     <h5>스테이지 정답 관리</h5>
                     <div class="col-6 col-12-small">
                         <input type="checkbox" id="jCheckAll">
@@ -159,6 +160,7 @@
                     </div>
 
                 </div>
+                <?}?>
                 <!-- Break -->
                 <div class="col-12">
                     <ul class="actions">
