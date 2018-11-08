@@ -19,10 +19,8 @@ if(! class_exists("Constants") )
 //		var $webRoot				= "http://localhost:9880/wapp" ;
 //		var $con_domain				= "http://localhost:9880" ;	// 메일에서 사용되는 도메인
 //
-        //MAC Local path
-        var $filePath               = "/usr/local/var/CrossMedia_hc/wapp/uploadFiles/";
-        var $downFilePath           = "/usr/local/var/CrossMedia_hc/wapp/downloadFiles/";
-
+		// var $filePath                = "/usr/local/var/CrossMedia_hc/wapp/uploadFiles/";
+		var $filePath               = "D:/workspace_integrated/WebstormProjects/CrossHC/wapp/uploadFiles/";
         var $fileShowPath           = "/uploadFiles/";
 
         var $serverRoot				= "http://huneps.com:10040/";

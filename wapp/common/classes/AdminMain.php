@@ -274,8 +274,8 @@ if(!class_exists("AdminMain")){
             $Rnd = rand(1000000,2000000) ;
             $Temp = date("Ymdhis") ;
             return $Temp.$Rnd;
-        }
 
+        }
         function manageRecommend(){
             $check = getimagesize($_FILES["imgFile"]["tmp_name"]);
             $appId = $_REQUEST["appId"];

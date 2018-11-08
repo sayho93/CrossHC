@@ -4,6 +4,7 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminMain.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminEtc.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/ApiList.php" ; ?>
+<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/ApiDown.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebBoard.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebMain.php" ; ?>

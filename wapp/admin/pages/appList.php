@@ -63,6 +63,12 @@
             var appId = $(this).attr("id");
             location.href = "/admin/pages/detailApp.php?appId=" + appId;
         });
+
+        $(".jDown").click(function(e){
+            e.stopPropagation();
+            var appId = $(this).attr("appId");
+            location.href = "/action_front.php?cmd=ApiDown.downloadStageInfo&appId=" + appId;
+        });
     });
 </script>
 
@@ -99,6 +105,8 @@
                             <a href="#" class="button primary fit jManageR small" appId="<?=$item["id"]?>">추천앱 관리</a>
                             <br/><br/>
                             <a href="#" class="button primary fit jUpdate small" appId="<?=$item["id"]?>">업데이트 적용</a>
+                            <br/><br/>
+                            <a href="#" class="button primary fit jDown small" appId="<?=$item["id"]?>">데이터 다운로드</a>
                             <br/><br/>
                             <a href="#" class="button fit jDelete small" appId="<?=$item["id"]?>">삭제</a>
                         </div>
