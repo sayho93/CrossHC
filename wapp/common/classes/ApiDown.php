@@ -21,9 +21,7 @@ if(!class_exists("ApiDown")){
         }
 
         function downloadStageInfo(){
-//            $downFilePath = "/usr/local/var/CrossMedia_hc/wapp/downloadFiles/";
-            $downFilePath = "D:/workspace_integrated/WebstormProjects/CrossHC/wapp/downloadFiles/";
-
+            $downFilePath = "/home/hosting_users/findpictures/www/uploadFiles/";
             $appId = $_REQUEST["appId"];
 
             $sql = "
@@ -67,6 +65,11 @@ if(!class_exists("ApiDown")){
             fwrite($fp, json_encode($stageList));
             fclose($fp);
 
+
+            while(ob_get_level()){
+                ob_end_clean();
+            }
+
             $zip = new ZipArchive;
             if ($zip->open($target . ".zip",  ZipArchive::CREATE)){
                 $zip->addFile($target . ".json", 'appdata.json');
@@ -79,6 +82,7 @@ if(!class_exists("ApiDown")){
                 $zip->close();
                 header('Content-disposition: attachment; filename=' . 'app_' . $appId . "_" . $fName . '.zip');
                 header('Content-type: application/zip');
+
                 readfile($target . ".zip");
                 return $this->makeResultJson(1, "succ");
             }else return $this->makeResultJson(-1, "failed");
