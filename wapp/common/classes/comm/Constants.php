@@ -21,6 +21,7 @@ if(! class_exists("Constants") )
 //
         //MAC Local path
         var $filePath               = "/usr/local/var/CrossMedia_hc/wapp/uploadFiles/";
+        var $downFilePath           = "/usr/local/var/CrossMedia_hc/wapp/downloadFiles/";
 
         var $fileShowPath           = "/uploadFiles/";
 
