@@ -29,8 +29,8 @@ if(! class_exists("Constants") )
 
  		var $dbHost					= "picklecode.co.kr";
  		var $dbName					= "crossmedia_hc" ;
- 		var $dbUser					= "root" ;
- 		var $dbPass					= "pickle!@#$" ;
+ 		var $dbUser					= "id" ;
+ 		var $dbPass					= "pass" ;
  		var $charset				= "utf8" ;
 
  		var $IMG_DIR                = "http://huneps.com:9000/";
